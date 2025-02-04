@@ -95,21 +95,21 @@ export default function Page() {
               />
               <ProjectCard
                 title="Association of Chartered Certified Accountants"
-                description="A real-time task management application with team collaboration features."
+                description="A prompt examination feedback experience using Typescript, NodeJs, GraphQL, Module Federation and more."
                 image="/placeholder.svg?height=400&width=600"
-                tags={["React", "Node.js", "Socket.io"]}
+                tags={["React", "Node.js", "GraphQL", "Webpack", "Module Federation"]}
               />
               <ProjectCard
-                title="AI Chat Interface"
-                description="An AI-powered chat interface with natural language processing capabilities."
+                title="Dance AI"
+                description="An AI-powered internally promoted dance app that transposes professional dance moves to your own."
                 image="/placeholder.svg?height=400&width=600"
-                tags={["OpenAI", "Next.js", "TailwindCSS"]}
+                tags={["Python", "Flask", "OpenCV", "TensorFlow", "Nvidia CUDA", "Machine Learning"]}
               />
               <ProjectCard
-                title="Portfolio Website"
-                description="A modern, responsive portfolio website built with Next.js and TailwindCSS."
+                title="Out Of Home Web Experiences FMCG"
+                description="The creation of various promotional experiences for brands under a ubiquitous FMCG conglomerate using Next.js, Apollo Client and Styled Components, hosted on AWS S3 & EC2."
                 image="/placeholder.svg?height=400&width=600"
-                tags={["Next.js", "TailwindCSS", "TypeScript"]}
+                tags={["Next.js", "Apollo Client", "Styled Components", "AWS"]}
               />
             </div>
           </div>
