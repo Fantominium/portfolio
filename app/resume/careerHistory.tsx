@@ -37,7 +37,7 @@ export const CareerHistory = () => {
                 <AccordionTrigger>Project with Avon Cosmetics</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Scope of work - Task breakdown of customer requirements, into actionable tickets for the
+                    Scope of work included - Task breakdown of customer requirements, into actionable tickets for the
                     Python API & React Web teams to develop. Recruited additional resources, and grew the team from one
                     to eight, comprising both of backend and frontend web teams. Managed expectations, highlighted risks,
                     and kept to strict timelines through frequent communication with the Leadership Team.
@@ -45,11 +45,14 @@ export const CareerHistory = () => {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="project2">
-                <AccordionTrigger>Project with XYZ Corp</AccordionTrigger>
+                <AccordionTrigger>Project with ACCA</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Led the development of a new microservices architecture, improving system scalability and performance.
-                    Coordinated with cross-functional teams to ensure seamless integration and deployment.
+                    Scope of work included - Lead the Web development team to deliver the Personalized Exam
+                    Feedback product. Broke down the initial scope of work, through frequent meetings with key stakeholders
+                    and my team. Verified that client needs were understood, agreed upon and actioned by both designers
+                    and developers. Ensured that the creation of UI designs accounted for and was within WCAG guidelines,
+                    enabling the accessibility and usability of the application by persons with disabilities.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -59,26 +62,48 @@ export const CareerHistory = () => {
 
         {/* Company 2 */}
         <AccordionItem value="company2">
-          <AccordionTrigger>Company B</AccordionTrigger>
+          <AccordionTrigger>Movement Digital</AccordionTrigger>
           <AccordionContent>
             <h3 className="text-lg font-medium">Full Stack Developer</h3>
-            <p className="text-sm sm:text-base mb-2">June 2017 - December 2019</p>
+            <p className="text-sm sm:text-base mb-2">March 2018 - August 2021</p>
             <Accordion type="single" collapsible value={openProjects['company2'] ?? undefined} onValueChange={(value) => handleProjectChange('company2', value)}>
               <AccordionItem value="project1">
-                <AccordionTrigger>Project with ABC Corp</AccordionTrigger>
+                <AccordionTrigger>Project with The Coca-Cola Company</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Developed and maintained e-commerce platforms using Django and React, optimized database performance with PostgreSQL, and integrated third-party APIs to enhance functionality.
-                  </p>
+                    Scope of work included - 
+                    Responsible for the development of a B2B menu generator tool 
+                    for a multinational rollout. Worked closely with the client to understand their needs and
+                    provided technical solutions to meet their requirements. Coordinated with cross-functional teams
+                    to ensure seamless integration and delivery of the tool across different regions. The project
+                    resulted in a significant increase in operational efficiency and customer satisfaction for the
+                    company.
+                    Developed experiential digital marketing content prototypes, using AI and AR 
+                    technologies to create immersive and interactive user experiences. 
+                    Collaborated with designers and engineers to integrate cutting-edge technologies into marketing campaigns, 
+                    resulting in increased engagement and brand awareness.
+                   </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="project2">
-                <AccordionTrigger>Project with DEF Corp</AccordionTrigger>
+                <AccordionTrigger>Project with Clarins</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Implemented a new CI/CD pipeline using Jenkins and Docker, reducing deployment times by 50%.
-                    Collaborated with the QA team to automate testing processes, improving software quality.
-                  </p>
+                    Scope of work included - Enhanced application reliability by 
+                    leading the integration and testing 
+                    of bug fixes, achieving {'>'} 90%
+                    code test coverage, for thier in-store customer profile and product
+                    recommendation tool used across the UK. </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="project3">
+                <AccordionTrigger>Project with IHG Group</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm sm:text-base">
+                    Scope of work included - Optimized the booking confirmation process for an international hotel group,
+                    Managed the cloud infrastructure, as well as being responsible for 
+                    adding web features and content to the company website.
+                     </p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
