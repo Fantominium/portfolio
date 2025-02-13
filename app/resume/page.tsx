@@ -1,14 +1,63 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { Download, ArrowLeft } from "lucide-react"
+import { Download } from "lucide-react"
 import { Suspense } from "react"
 import Link from "next/link"
+import { CareerHistory } from "./careerHistory"
 
 export const metadata = {
   title: "Mkg Consultancy/Resume",
   description: "Resume",
 }
+const arrayAccessoryTools = [
+  "Jira", 
+  "Confluence", 
+  "BitBucket", 
+  "Github", 
+  "Github Actions", 
+  "TeamCity", 
+  "Jenkins", 
+  "Postman", 
+  "ConfigCat", 
+  "Swagger", 
+  "Strapi"
+];
+const arrayProgrammingSkills = [
+  "Typescript",
+  "React",
+  "GraphQL",
+  "Axios",
+  "State Management tools (Jotai, Zustand, Redux)",
+  "React Testing Library",
+  "Jest",
+  "Express",
+  "Cypress",
+  "React & Next.js",
+  "Node.js & Express",
+  "Python Django",
+  "GraphQL",
+  "RESTful APIs",
+  "NoSQL (MongoDB)",
+  "SQL (MySQL, Cassandra)",
+  "Docker",
+];
+
+const cloudSkills = [
+  "Lambda", 
+  "EC2", 
+  "API Gateway", 
+  "S3", 
+  "RDS", 
+  "CloudFront", 
+  "Route 53", 
+  "CloudWatch", 
+  "DynamoDB", 
+  "CloudFormation", 
+  "CodeCommit", 
+  "CloudTrail", 
+  "IAM"
+];
 
 export default function ResumePage() {
   return (
@@ -35,7 +84,7 @@ export default function ResumePage() {
           size="lg"
           className="flex items-center gap-2"
         >
-          <a href="/resume.pdf" download aria-label="Download Resume">
+          <a href="/mkg_resume.pdf" download aria-label="Download Resume">
             <Download className="h-5 w-5 inline" />
             Download Resume
           </a>
@@ -57,8 +106,14 @@ function ResumeContent() {
       <Card className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Summary</h2>
         <p className="text-sm sm:text-base">
-          Experienced Full Stack Developer with a passion for building scalable web applications and working across the full stack. Adept at collaborating with cross-functional teams to deliver high-quality software solutions.
-        </p>
+        I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in
+front-end and back-end technologies across multiple cloud environments. With a proven ability to lead
+development projects from inception to deployment, that enhances user experience and operational
+efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations,
+across different industries including professional services, fintech, FMCG and telecoms. I always manage to
+establish a strong relationship with a wide range of internal and global stakeholders as well as third party
+suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
+frameworks, to bridge the gap between Developer, Designer, and Product Owner.        </p>
       </Card>
 
       {/* Skills Section */}
@@ -68,26 +123,35 @@ function ResumeContent() {
           
           {/* Cloud Skills */}
           <AccordionItem value="cloud">
-            <AccordionTrigger>Cloud</AccordionTrigger>
+            <AccordionTrigger>Cloud </AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-                <li>AWS (S3, EC2, Lambda)</li>
-                <li>Azure</li>
-                <li>Google Cloud Platform</li>
+              {cloudSkills.map((cloudSkill) => (
+                <li key={cloudSkill}>{cloudSkill}</li>
+              ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
           
           {/* Programming Skills */}
-          <AccordionItem value="programming">
+            <AccordionItem value="programming">
             <AccordionTrigger>Programming</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-                <li>JavaScript & TypeScript</li>
-                <li>React & Next.js</li>
-                <li>Node.js & Express</li>
-                <li>Python & Django</li>
-                <li>GraphQL</li>
+              {arrayProgrammingSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+              </ul>
+            </AccordionContent>
+            </AccordionItem>
+              {/* Accessories and tools */}
+            <AccordionItem value="accessory tools">
+            <AccordionTrigger>Accessories</AccordionTrigger>
+            <AccordionContent>
+              <ul className="list-disc list-inside space-y-1">
+              {arrayAccessoryTools.map((tool) => (
+                <li key={tool}>{tool}</li>
+              ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -97,8 +161,10 @@ function ResumeContent() {
             <AccordionTrigger>Education</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-                <li>Bachelor of Science in Computer Science, University XYZ</li>
-                <li>Certified AWS Solutions Architect</li>
+                <li>Bachelor of Science – Computer Science (Hons) (2013), 
+                  University of the West Indies</li>
+                  <li>Certified AWS Cloud Practitioner</li>
+                  <li>Certified Microsoft Azure Fundamentals</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -106,37 +172,7 @@ function ResumeContent() {
         </Accordion>
       </Card>
 
-      {/* Career History Section */}
-      <Card className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Career History</h2>
-        <Accordion type="single" collapsible>
-          
-          {/* Company 1 */}
-          <AccordionItem value="company1">
-            <AccordionTrigger>Company A</AccordionTrigger>
-            <AccordionContent>
-              <h3 className="text-lg font-medium">Senior Full Stack Developer</h3>
-              <p className="text-sm sm:text-base mb-2">January 2020 - Present</p>
-              <p className="text-sm sm:text-base">
-                Lead the development of web applications using React and Node.js, collaborated with UX designers to create seamless user experiences, and implemented scalable backend systems with AWS.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-          
-          {/* Company 2 */}
-          <AccordionItem value="company2">
-            <AccordionTrigger>Company B</AccordionTrigger>
-            <AccordionContent>
-              <h3 className="text-lg font-medium">Full Stack Developer</h3>
-              <p className="text-sm sm:text-base mb-2">June 2017 - December 2019</p>
-              <p className="text-sm sm:text-base">
-                Developed and maintained e-commerce platforms using Django and React, optimized database performance with PostgreSQL, and integrated third-party APIs to enhance functionality.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-
-        </Accordion>
-      </Card>
+      <CareerHistory />
 
     </div>
   )
