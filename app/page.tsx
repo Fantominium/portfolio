@@ -10,7 +10,7 @@ import CurrentYear from "./components/ui/CurrentYear"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container max-w-7xl mx-auto flex h-14 items-center px-4">
           <MobileNav />
@@ -33,7 +33,7 @@ export default function Page() {
           <div className="ml-auto flex items-center space-x-4">
             <ThemeToggle />
             <Button variant="outline" className="hidden sm:inline-flex">
-              Resume
+              <Link href="/resume">Resume</Link>
             </Button>
           </div>
         </div>
