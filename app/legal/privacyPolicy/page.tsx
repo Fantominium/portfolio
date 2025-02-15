@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
 
         <h3 className="text-lg font-medium">Your Rights</h3>
         <p className="text-sm sm:text-base">
-          You have the right to access, correct, or delete your personal information. You may also have the right to object to or restrict certain processing of your information. To exercise these rights, please contact us at [contact email].
+          You have the right to access, correct, or delete your personal information. You may also have the right to object to or restrict certain processing of your information. To exercise these rights, please contact us at mkg.consultancy.uk@gmail.com.
         </p>
 
         <h3 className="text-lg font-medium">Changes to This Privacy Policy</h3>
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
 
         <h3 className="text-lg font-medium">Contact Us</h3>
         <p className="text-sm sm:text-base">
-          If you have any questions about this Privacy Policy, please contact us at [contact email].
+          If you have any questions about this Privacy Policy, please contact us at mkg.consultancy.uk@gmail.com .
         </p>
       </Card>
     </div>

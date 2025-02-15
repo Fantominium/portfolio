@@ -64,12 +64,12 @@ export default function TermsAndConditions() {
 
         <h3 className="text-lg font-medium">Governing Law</h3>
         <p className="text-sm sm:text-base">
-          These terms and conditions are governed by and construed in accordance with the laws of [Your Country/State], and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+          These terms and conditions are governed by and construed in accordance with the laws of the United Kingdom, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
         </p>
 
         <h3 className="text-lg font-medium">Contact Us</h3>
         <p className="text-sm sm:text-base">
-          If you have any questions about these terms and conditions, please contact us at [contact email].
+          If you have any questions about these terms and conditions, please contact us at mkg.consultancy.uk@gmail.com .
         </p>
       </Card>
     </div>
