@@ -1,15 +1,17 @@
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { Download } from "lucide-react"
-import { Suspense } from "react"
-import Link from "next/link"
-import { CareerHistory } from "./careerHistory"
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { Download } from "lucide-react";
+import { Suspense } from "react";
+import Link from "next/link";
+import { CareerHistory } from "./careerHistory";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const metadata = {
   title: "Mkg Consultancy/Resume",
   description: "Resume",
-}
+};
+
 const arrayAccessoryTools = [
   "Jira", 
   "Confluence", 
@@ -23,16 +25,11 @@ const arrayAccessoryTools = [
   "Swagger", 
   "Strapi"
 ];
+
 const arrayProgrammingSkills = [
   "Typescript",
   "React",
   "GraphQL",
-  "Axios",
-  "State Management tools (Jotai, Zustand, Redux)",
-  "React Testing Library",
-  "Jest",
-  "Express",
-  "Cypress",
   "React & Next.js",
   "Node.js & Express",
   "Python Django",
@@ -75,6 +72,11 @@ export default function ResumePage() {
         </Link>
       </Button>
 
+      {/* Dark Mode Toggle */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
       <h1 className="text-4xl font-bold mb-6">Resume</h1>
       
       <div className="mb-6">
@@ -95,7 +97,7 @@ export default function ResumePage() {
         <ResumeContent />
       </Suspense>
     </div>
-  )
+  );
 }
 
 function ResumeContent() {
@@ -106,14 +108,15 @@ function ResumeContent() {
       <Card className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Summary</h2>
         <p className="text-sm sm:text-base">
-        I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in
-front-end and back-end technologies across multiple cloud environments. With a proven ability to lead
-development projects from inception to deployment, that enhances user experience and operational
-efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations,
-across different industries including professional services, fintech, FMCG and telecoms. I always manage to
-establish a strong relationship with a wide range of internal and global stakeholders as well as third party
-suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
-frameworks, to bridge the gap between Developer, Designer, and Product Owner.        </p>
+          I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in
+          front-end and back-end technologies across multiple cloud environments. With a proven ability to lead
+          development projects from inception to deployment, that enhances user experience and operational
+          efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations,
+          across different industries including professional services, fintech, FMCG and telecoms. I always manage to
+          establish a strong relationship with a wide range of internal and global stakeholders as well as third party
+          suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
+          frameworks, to bridge the gap between Developer, Designer, and Product Owner.
+        </p>
       </Card>
 
       {/* Skills Section */}
@@ -123,35 +126,36 @@ frameworks, to bridge the gap between Developer, Designer, and Product Owner.   
           
           {/* Cloud Skills */}
           <AccordionItem value="cloud">
-            <AccordionTrigger>Cloud </AccordionTrigger>
+            <AccordionTrigger>Cloud</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-              {cloudSkills.map((cloudSkill) => (
-                <li key={cloudSkill}>{cloudSkill}</li>
-              ))}
+                {cloudSkills.map((cloudSkill) => (
+                  <li key={cloudSkill}>{cloudSkill}</li>
+                ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
           
           {/* Programming Skills */}
-            <AccordionItem value="programming">
+          <AccordionItem value="programming">
             <AccordionTrigger>Programming</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-              {arrayProgrammingSkills.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
+                {arrayProgrammingSkills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
               </ul>
             </AccordionContent>
-            </AccordionItem>
-              {/* Accessories and tools */}
-            <AccordionItem value="accessory tools">
+          </AccordionItem>
+          
+          {/* Accessories and tools */}
+          <AccordionItem value="accessory tools">
             <AccordionTrigger>Accessories</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
-              {arrayAccessoryTools.map((tool) => (
-                <li key={tool}>{tool}</li>
-              ))}
+                {arrayAccessoryTools.map((tool) => (
+                  <li key={tool}>{tool}</li>
+                ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -163,8 +167,8 @@ frameworks, to bridge the gap between Developer, Designer, and Product Owner.   
               <ul className="list-disc list-inside space-y-1">
                 <li>Bachelor of Science – Computer Science (Hons) (2013), 
                   University of the West Indies</li>
-                  <li>Certified AWS Cloud Practitioner</li>
-                  <li>Certified Microsoft Azure Fundamentals</li>
+                <li>Certified AWS Cloud Practitioner</li>
+                <li>Certified Microsoft Azure Fundamentals</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -175,5 +179,5 @@ frameworks, to bridge the gap between Developer, Designer, and Product Owner.   
       <CareerHistory />
 
     </div>
-  )
+  );
 }
