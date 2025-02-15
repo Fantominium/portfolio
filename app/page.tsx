@@ -145,10 +145,10 @@ export default function Page() {
             © <CurrentYear /> Mkg Consultancy Ltd. All rights reserved.
           </p>
           <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-            <Link className="text-xs hover:underline underline-offset-4" href="#">
+            <Link className="text-xs hover:underline underline-offset-4" href="/legal/termsAndConditions">
               Terms of Service
             </Link>
-            <Link className="text-xs hover:underline underline-offset-4" href="#">
+            <Link className="text-xs hover:underline underline-offset-4" href="/legal/privacyPolicy">
               Privacy
             </Link>
           </nav>
