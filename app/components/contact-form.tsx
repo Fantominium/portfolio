@@ -11,7 +11,7 @@ import axios from "axios"
 export default function ContactForm() {
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState("")
-  const [formErrors, setFormErrors] = useState({})
+  const [formErrors, setFormErrors] = useState<FormErrors>({})
   const [employmentType, setEmploymentType] = useState("contract")
   const [formData, setFormData] = useState({
     name: "",
@@ -19,9 +19,9 @@ export default function ContactForm() {
     subject: "",
     opportunity: "",
   })
-  const [recaptchaToken, setRecaptchaToken] = useState(null)
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prevData) => ({
       ...prevData,
@@ -29,7 +29,22 @@ export default function ContactForm() {
     }))
   }
 
-  const handleSubmit = async (event) => {
+  interface FormData {
+    name: string;
+    email: string;
+    subject: string;
+    opportunity: string;
+  }
+
+  interface FormErrors {
+    name?: string;
+    email?: string;
+    subject?: string;
+    opportunity?: string;
+    employmentType?: string;
+  }
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!recaptchaToken) {
       setMessage("Please complete the reCAPTCHA.");
@@ -53,7 +68,7 @@ export default function ContactForm() {
       });
       setEmploymentType("contract");
       setRecaptchaToken(null);
-    } catch (error) {
+    } catch (error: any) {
       if (error.response?.data?.errors) {
         setFormErrors(error.response.data.errors);
       } else {
@@ -62,7 +77,7 @@ export default function ContactForm() {
     } finally {
       setPending(false);
     }
-  }
+  };
 
   return (
     <Card className="p-4 sm:p-6 lg:p-8 backdrop-blur-sm bg-background/95">
@@ -158,7 +173,7 @@ export default function ContactForm() {
           {formErrors.employmentType && <p className="text-red-500 text-sm mt-1">{formErrors.employmentType}</p>}
         </div>
         <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
           onChange={(token) => setRecaptchaToken(token)}
         />
         <Button type="submit" className="w-full sm:w-auto px-8 sm:text-lg h-12" size="lg" disabled={pending}>
