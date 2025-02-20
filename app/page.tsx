@@ -49,26 +49,20 @@ export default function Page() {
                 </h1>
                 <p className="mx-auto max-w-[800px] text-base text-gray-500 md:text-xl lg:text-2xl dark:text-gray-400">
                   Building digital experiences with modern technologies. Focused on creating elegant solutions to
-                  complex problems.
+                  complex problems, in an accessible way.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <Link href="https://github.com" target="_blank">
+                <Link href="https://github.com/Fantominium/" target="_blank">
                   <Button variant="outline" size="icon" className="h-12 w-12">
                     <Github className="h-5 w-5" />
                     <span className="sr-only">GitHub</span>
                   </Button>
                 </Link>
-                <Link href="https://linkedin.com" target="_blank">
+                <Link href="https://linkedin.comhttps://www.linkedin.com/in/malcolm-garner-12a20065/" target="_blank">
                   <Button variant="outline" size="icon" className="h-12 w-12">
                     <Linkedin className="h-5 w-5" />
                     <span className="sr-only">LinkedIn</span>
-                  </Button>
-                </Link>
-                <Link href="https://twitter.com" target="_blank">
-                  <Button variant="outline" size="icon" className="h-12 w-12">
-                    <Twitter className="h-5 w-5" />
-                    <span className="sr-only">Twitter</span>
                   </Button>
                 </Link>
                 <Link href="mailto:mkg.consultancy.uk@gmail.com">
