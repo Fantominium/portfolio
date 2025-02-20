@@ -75,7 +75,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-
         <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div className="container max-w-[1400px] mx-auto px-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
