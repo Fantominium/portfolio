@@ -59,7 +59,7 @@ export default function Page() {
                     <span className="sr-only">GitHub</span>
                   </Button>
                 </Link>
-                <Link href="https://linkedin.comhttps://www.linkedin.com/in/malcolm-garner-12a20065/" target="_blank">
+                <Link href="https://www.linkedin.com/in/malcolm-garner-12a20065/" target="_blank">
                   <Button variant="outline" size="icon" className="h-12 w-12">
                     <Linkedin className="h-5 w-5" />
                     <span className="sr-only">LinkedIn</span>
