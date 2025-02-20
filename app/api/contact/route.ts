@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'reCAPTCHA verification failed' }, { status: 500 });
   }
 
-  // Process form submission (e.g., send email, save to DB) here...
+  // Process form submission (e.g., send email, save to DB) here.
   console.log("sanitised data ", sanitizedData);
   return NextResponse.json({ message: 'Your message has been sent!' }, { status: 200 });
 }
