@@ -8,12 +8,28 @@ import { useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import axios from "axios"
 
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  opportunity: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  opportunity?: string;
+  employmentType?: string;
+}
+
 export default function ContactForm() {
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState("")
   const [formErrors, setFormErrors] = useState<FormErrors>({})
   const [employmentType, setEmploymentType] = useState("contract")
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     subject: "",
@@ -29,20 +45,6 @@ export default function ContactForm() {
     }))
   }
 
-  interface FormData {
-    name: string;
-    email: string;
-    subject: string;
-    opportunity: string;
-  }
-
-  interface FormErrors {
-    name?: string;
-    email?: string;
-    subject?: string;
-    opportunity?: string;
-    employmentType?: string;
-  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
