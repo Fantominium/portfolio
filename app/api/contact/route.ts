@@ -3,7 +3,6 @@ import axios from 'axios';
 import validator from 'validator';
 import sanitizeHtml from 'sanitize-html';
 import sgMail from '@sendgrid/mail';
-import sanitize from 'sanitize-html';
 
 export async function POST(request: Request) {
   const { name, email, subject, opportunity, employmentType, recaptchaToken } = await request.json();
