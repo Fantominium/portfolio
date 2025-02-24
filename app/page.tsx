@@ -6,7 +6,7 @@ import TechStack from "./components/tech-stack"
 import { MobileNav } from "./components/mobile-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import CurrentYear from "./components/ui/CurrentYear"
-import { ProjectSection } from "./components/projects/page"
+import  ProjectSection  from "./projectsSection/page"
  
 export default function Page() {
   return (

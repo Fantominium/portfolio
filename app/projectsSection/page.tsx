@@ -1,5 +1,4 @@
-"use client"
-import ProjectCard from "../project-card";
+import ProjectCard from "../components/project-card";
 const projects = [{ 
     title: "Multinational Cosmetics Firm", 
     description: "A greenfield onboarding web app using Typescript, React Query, Python Django, Lambdas and more.", 
@@ -24,7 +23,7 @@ const projects = [{
     image: "/images/coke.jpg",
     tags: ["Next.js", "Apollo Client", "Styled Components", "AWS"]
 }]
-export const ProjectSection = () => {
+export default function ProjectSection () {
 
     return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
