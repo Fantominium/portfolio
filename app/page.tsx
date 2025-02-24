@@ -6,8 +6,8 @@ import TechStack from "./components/tech-stack"
 import { MobileNav } from "./components/mobile-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import CurrentYear from "./components/ui/CurrentYear"
-import { ProjectSection } from "./components/Sections/projects/page"
-
+import { ProjectSection } from "./components/projects/page"
+ 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4">

@@ -1,4 +1,5 @@
-import ProjectCard from "../../project-card"
+"use client"
+import ProjectCard from "../project-card";
 const projects = [{ 
     title: "Multinational Cosmetics Firm", 
     description: "A greenfield onboarding web app using Typescript, React Query, Python Django, Lambdas and more.", 
