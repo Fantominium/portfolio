@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import ContactForm from "./components/contact-form"
-import ProjectCard from "./components/project-card"
 import TechStack from "./components/tech-stack"
 import { MobileNav } from "./components/mobile-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import CurrentYear from "./components/ui/CurrentYear"
+import { ProjectSection } from "./components/Sections/projects/page"
 
 export default function Page() {
   return (
@@ -65,7 +65,7 @@ export default function Page() {
                     <span className="sr-only">LinkedIn</span>
                   </Button>
                 </Link>
-                <Link href="mailto:mkg.consultancy.uk@gmail.com">
+                <Link href="#contact">
                   <Button variant="outline" size="icon" className="h-12 w-12">
                     <Mail className="h-5 w-5" />
                     <span className="sr-only">Email</span>
@@ -75,39 +75,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container max-w-[1400px] mx-auto px-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
-              Projects
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-8xl mx-auto">
-              <ProjectCard
-                title="Multinational Cosmetics Firm"
-                description="A greenfield onboarding web app using Typescript, React Query, Python Django, Lambdas and more."
-                image="/images/cosmetic.jpg"
-                tags={["Typescript", "React Query", "Python", "Django", "AWS"]}
-              />
-              <ProjectCard
-                title="Association of Chartered Certified Accountants"
-                description="A prompt examination feedback experience using Typescript, NodeJs, GraphQL, Module Federation and more."
-                image="/images/accountants.jpg"
-                tags={["React", "Node.js", "GraphQL", "Webpack", "Module Federation"]}
-              />
-              <ProjectCard
-                title="Dance AI"
-                description="An AI-powered internally promoted dance app that transposes professional dance moves to your own."
-                image="/images/danceai.jpg"
-                tags={["Python", "Flask", "OpenCV", "TensorFlow", "Nvidia CUDA", "Machine Learning"]}
-              />
-              <ProjectCard
-                title="Out Of Home Web Experiences FMCG"
-                description="The creation of various promotional experiences for brands under a ubiquitous FMCG conglomerate using Next.js, Apollo Client and Styled Components, hosted on AWS S3 & EC2."
-                image="/images/coke.jpg"
-                tags={["Next.js", "Apollo Client", "Styled Components", "AWS"]}
-              />
-            </div>
-          </div>
-        </section>
+       <ProjectSection />
 
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container max-w-[1400px] mx-auto px-4">
