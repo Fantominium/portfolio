@@ -1,14 +1,12 @@
 "use client"
-
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
-export function MobileNav() {
+export default function MobileNav() {
   const [open, setOpen] = useState(false)
-
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
