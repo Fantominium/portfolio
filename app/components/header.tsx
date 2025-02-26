@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import MobileNav from '../components/mobile-nav'
 import {ThemeToggle} from '@/components/theme-toggle'
-import {Button} from '@/components/ui/button'
 import {HeaderLinkList} from '../data/headerData'
 
 export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {

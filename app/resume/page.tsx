@@ -6,7 +6,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { CareerHistory } from "./careerHistory";
 import { ThemeToggle } from "@/components/theme-toggle";
-
+import Header  from "../components/header";
+import { resumeHeaderData } from "../data/resumeHeaderData";
 export const metadata = {
   title: "Mkg Consultancy/Resume",
   description: "Resume",
@@ -59,25 +60,8 @@ const cloudSkills = [
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
-      
-      {/* Sticky Back Button */}
-      <Button
-        asChild
-        variant="outline"
-        size="lg"
-        className="fixed top-4 left-4 z-50 flex items-center gap-2"
-      >
-        <Link href="/" aria-label="Back to Home">
-          Back
-        </Link>
-      </Button>
-
-      {/* Dark Mode Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-
-      <h1 className="text-4xl font-bold mb-6">Resume</h1>
+      <Header headerLinks={resumeHeaderData.headerLinks} />
+      <h1 className="text-4xl font-bold mb-6 mt-6">Resume</h1>
       
       <div className="mb-6">
         <Button
