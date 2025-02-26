@@ -4,8 +4,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { HeaderLinkList } from "../data/headerData"
 
-export default function MobileNav() {
+export default function MobileNav({headerLinks = []}: Readonly<HeaderLinkList>) {
   const [open, setOpen] = useState(false)
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -16,16 +17,21 @@ export default function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
+        <span className="mb-6 flex items-center space-x-2 font-bold">Mkg Consultancy Ltd</span>
         <nav className="flex flex-col space-y-4">
-          <Link href="#about" className="text-lg font-medium hover:text-primary" onClick={() => setOpen(false)}>
-            About
-          </Link>
-          <Link href="#projects" className="text-lg font-medium hover:text-primary" onClick={() => setOpen(false)}>
-            Projects
-          </Link>
-          <Link href="#contact" className="text-lg font-medium hover:text-primary" onClick={() => setOpen(false)}>
-            Contact
-          </Link>
+          {
+            headerLinks ?
+            headerLinks.map(
+                (link) => 
+                    <Link 
+                        key= {link.href} 
+                        href={link.href} 
+                        className="text-lg font-medium hover:text-primary" 
+                        onClick={() => setOpen(false)}
+                        >
+                        {link.content}
+                    </Link>) : null
+                }
         </nav>
       </SheetContent>
     </Sheet>
