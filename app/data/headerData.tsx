@@ -25,6 +25,10 @@ export const headerData: HeaderLinkList = {
         {
             href: "#contact",
             content: "Contact"
+        },
+        {
+            href: "/resume",
+            content: "Resume"
         }
     ]
 }

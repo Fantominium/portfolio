@@ -31,9 +31,6 @@ export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
           </div>
           <div className="ml-auto flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="outline" className="hidden sm:inline-flex">
-              <Link href="/resume">Resume</Link>
-            </Button>
           </div>
         </div>
       </header>
