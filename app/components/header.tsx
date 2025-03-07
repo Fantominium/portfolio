@@ -11,7 +11,7 @@ export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
           <MobileNav headerLinks={headerLinks ?? []} />
           <div className="mr-4 hidden md:flex">
             <Link className="mr-6 flex items-center space-x-2" href="/">
-              <span className="font-bold">Mkg Consultancy Ltd</span>
+              <span className="font-bold">Malcolm Garner</span>
             </Link>
             <nav className="flex items-center space-x-6 text-sm font-medium">
                 {
