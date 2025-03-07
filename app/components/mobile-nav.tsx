@@ -17,7 +17,7 @@ export default function MobileNav({headerLinks = []}: Readonly<HeaderLinkList>) 
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <span className="mb-6 flex items-center space-x-2 font-bold">Mkg Consultancy Ltd</span>
+        <span className="mb-6 flex items-center space-x-2 font-bold">Malcolm Garner</span>
         <nav className="flex flex-col space-y-4">
           {
             headerLinks ?
