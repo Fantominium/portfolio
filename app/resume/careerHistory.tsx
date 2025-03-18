@@ -26,13 +26,39 @@ export const CareerHistory = () => {
       <h2 className="text-2xl font-semibold mb-4">Career History</h2>
       <Accordion type="single" collapsible value={openCompany ?? undefined} onValueChange={handleCompanyChange}>
         
-        {/* Company 1 */}
-        <AccordionItem value="company1">
+      {/* Company 1 */}  
+      <AccordionItem value="company1">
+          <AccordionTrigger>Freelance Fullstack Developer</AccordionTrigger>
+          <AccordionContent>
+            <p className="text-sm sm:text-base mb-2">July 2024 - Present</p>
+            <Accordion type="single" collapsible value={openProjects['company1'] ?? undefined} onValueChange={(value) => handleProjectChange('company1', value)}>
+              <AccordionItem value="project1">
+                <AccordionTrigger>Various Freelance Projects</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm sm:text-base">
+                    Scope of work included - Conducting accessibility audits and implementing fixes for small scale
+                    applications, ensuring site availability for users who suffer from hard of hearing, blindness, or motor
+                    disabilities. Crafting NextJs applications for greenfield projects utilising the latest in App Routing, Server
+                    Side Rendering, SEO optimisations, and leveraging Backend for Frontend functionalities. Updating legacy
+                    state management systems into more modern Reactive alternatives, reducing cognitive complexity and
+                    simplifying application data flow. Implementing and updating website hosting, while leveraging Content
+                    Delivery Networks optimising Largest Contentful Paint through caching. Utilising headless CMS solutions
+                    such as Strapi and AEM (Adobe Experience Manager). Consulting on and aiding in the implementation of
+                    architectural decisions around the Micro-Front-Ends, specifically with Webpack Module Federation.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Company 2 */}
+        <AccordionItem value="company2">
           <AccordionTrigger>NTT DATA UK&I</AccordionTrigger>
           <AccordionContent>
             <h3 className="text-lg font-medium">Senior Software Application Developer</h3>
             <p className="text-sm sm:text-base mb-2">Sep 2021 - June 2024</p>
-            <Accordion type="single" collapsible value={openProjects['company1'] ?? undefined} onValueChange={(value) => handleProjectChange('company1', value)}>
+            <Accordion type="single" collapsible value={openProjects['company2'] ?? undefined} onValueChange={(value) => handleProjectChange('company2', value)}>
               <AccordionItem value="project1">
                 <AccordionTrigger>Project with Avon Cosmetics</AccordionTrigger>
                 <AccordionContent>
@@ -60,13 +86,13 @@ export const CareerHistory = () => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Company 2 */}
-        <AccordionItem value="company2">
+        {/* Company 3 */}
+        <AccordionItem value="company3">
           <AccordionTrigger>Movement Digital</AccordionTrigger>
           <AccordionContent>
             <h3 className="text-lg font-medium">Full Stack Developer</h3>
             <p className="text-sm sm:text-base mb-2">March 2018 - August 2021</p>
-            <Accordion type="single" collapsible value={openProjects['company2'] ?? undefined} onValueChange={(value) => handleProjectChange('company2', value)}>
+            <Accordion type="single" collapsible value={openProjects['company3'] ?? undefined} onValueChange={(value) => handleProjectChange('company3', value)}>
               <AccordionItem value="project1">
                 <AccordionTrigger>Project with The Coca-Cola Company</AccordionTrigger>
                 <AccordionContent>
