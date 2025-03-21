@@ -3,6 +3,7 @@ import Link from 'next/link'
 import MobileNav from '../components/mobile-nav'
 import {ThemeToggle} from '@/components/theme-toggle'
 import {HeaderLinkList} from '../data/headerData'
+import AuthButton from '@/components/authButton'
 
 export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
     return (
@@ -30,6 +31,7 @@ export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
           </div>
           <div className="ml-auto flex items-center space-x-4">
             <ThemeToggle />
+            <AuthButton />
           </div>
         </div>
       </header>
