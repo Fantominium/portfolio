@@ -1,15 +1,17 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import { signIn } from "next-auth/react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface AuthModalProps {
   isOpen: boolean;
+  onClose?: () => void;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ isOpen }) => {
+const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,21 +22,29 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen }) => {
 
   if (!isOpen) return null;
 
-  return (
-    <dialog
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  const modalContent = (
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && onClose) {
+          onClose();
+        }
+      }}
       aria-modal="true"
       aria-labelledby="auth-modal-title"
+      role="dialog"
     >
       <div
         ref={modalRef}
         tabIndex={-1}
         className="bg-background shadow-lg rounded p-6 w-11/12 md:w-[20vw] max-w-md"
       >
-        <h2 id="auth-modal-title" className="text-xl font-bold mb-4">
+        <h2 id="auth-modal-title" className="text-xl font-bold mb-4 text-center">
           Sign in
         </h2>
-        <p className="mb-4">Please sign in to access this content.</p>
+        <p className="mb-4 text-center">
+          Please sign in to access this content.
+        </p>
         <div className="flex flex-col space-y-2">
           <Button
             onClick={() => signIn("github")}
@@ -42,12 +52,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen }) => {
           >
             <Github className="mr-2" /> Sign in with GitHub
           </Button>
-          {/* <Button
+          {/* Uncomment for LinkedIn if needed:
+          <Button
             onClick={() => signIn("linkedin")}
             className="flex items-center justify-center"
           >
             <Linkedin className="mr-2" /> Sign in with LinkedIn
-          </Button> */}
+          </Button>
+          */}
           <Button
             onClick={() => signIn("google")}
             className="flex items-center justify-center"
@@ -56,7 +68,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen }) => {
           </Button>
         </div>
       </div>
-    </dialog>
+    </div>
   );
+
+  return ReactDOM.createPortal(modalContent, document.body);
 };
+
 export default AuthModal;

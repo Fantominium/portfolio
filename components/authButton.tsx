@@ -1,6 +1,5 @@
-"use client";
 import React, { useState } from "react";
-import { signOut, SessionProvider } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import useRequireAuth from "@/hooks/useRequireAuth";
 import AuthModal from "@/components/authModal";
 import { Button } from "@/components/ui/button";
@@ -21,25 +20,22 @@ const AuthButton: React.FC = () => {
   if (!isAuthChecked) {
     // Loading indicator with spinner icon for accessibility.
     return (
-      <SessionProvider>
       <div className="flex items-center justify-center">
         <Loader className="animate-spin h-6 w-6" aria-label="Loading" />
       </div>
-      </SessionProvider>
     );
   }
 
   if (!isAuthenticated) {
     return (
-      <SessionProvider>
+      <>
         <Button onClick={() => setIsModalOpen(true)}>Sign In</Button>
-        <AuthModal isOpen={isModalOpen} />
-      </SessionProvider>
+        <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </>
     );
   }
 
   return (
-    <SessionProvider>
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
@@ -61,7 +57,6 @@ const AuthButton: React.FC = () => {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-    </SessionProvider>
   );
 };
 
