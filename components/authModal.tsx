@@ -52,14 +52,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           >
             <Github className="mr-2" /> Sign in with GitHub
           </Button>
-          {/* Uncomment for LinkedIn if needed:
-          <Button
+          {/* <Button
             onClick={() => signIn("linkedin")}
             className="flex items-center justify-center"
           >
             <Linkedin className="mr-2" /> Sign in with LinkedIn
-          </Button>
-          */}
+          </Button> */}
+         
           <Button
             onClick={() => signIn("google")}
             className="flex items-center justify-center"
