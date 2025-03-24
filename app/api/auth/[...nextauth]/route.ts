@@ -13,12 +13,12 @@ declare module "next-auth" {
 export const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID ?? "your-github-client-id",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "your-github-client-secret",
+      clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID ?? "your-github-client-id",
+      clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET ?? "your-github-client-secret",
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID ?? "your-google-client-id",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "your-google-client-id",
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
     }),
     LinkedInProvider({
       clientId: process.env.LINKEDIN_ID ?? "your-linkedin-client-id",
