@@ -1,17 +1,18 @@
+"use client"
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Download } from "lucide-react";
 import { Suspense } from "react";
-import Link from "next/link";
 import { CareerHistory } from "./careerHistory";
-import { ThemeToggle } from "@/components/theme-toggle";
-import Header  from "../components/header";
+import Header from "../components/header";
 import { resumeHeaderData } from "../data/resumeHeaderData";
-export const metadata = {
-  title: "Mkg Consultancy/Resume",
-  description: "Resume",
-};
+import AuthGuard from "@/components/authGuard";
+import { SessionProvider } from "next-auth/react";
+// export const metadata = {
+//   title: "Mkg Consultancy/Resume",
+//   description: "Resume",
+// };
 
 const arrayAccessoryTools = [
   "Jira", 
@@ -59,28 +60,32 @@ const cloudSkills = [
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
-      <Header headerLinks={resumeHeaderData.headerLinks} />
-      <h1 className="text-4xl font-bold mb-6 mt-6">Resume</h1>
-      
-      <div className="mb-6">
-        <Button
-          asChild
-          variant="outline"
-          size="lg"
-          className="flex items-center gap-2"
-        >
-          <a href="/mkg_resume.pdf" download aria-label="Download Resume">
-            <Download className="h-5 w-5 inline" />
-            Download Resume
-          </a>
-        </Button>
-      </div>
+    <SessionProvider>
+    <AuthGuard>
+      <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
+        <Header headerLinks={resumeHeaderData.headerLinks} />
+        <h1 className="text-4xl font-bold mb-6 mt-6">Resume</h1>
+        
+        <div className="mb-6">
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="flex items-center gap-2"
+          >
+            <a href="/mkg_resume.pdf" download aria-label="Download Resume">
+              <Download className="h-5 w-5 inline" />
+              Download Resume
+            </a>
+          </Button>
+        </div>
 
-      <Suspense fallback={<div className="text-center">Loading...</div>}>
-        <ResumeContent />
-      </Suspense>
-    </div>
+        <Suspense fallback={<div className="text-center">Loading...</div>}>
+          <ResumeContent />
+        </Suspense>
+      </div>
+    </AuthGuard>
+    </SessionProvider>
   );
 }
 
