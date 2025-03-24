@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
     }),
     GoogleProvider({
       clientId: process.env.NEXTAUTH_GOOGLE_CLIENT_ID ?? "your-google-client-id",
-      clientSecret: process.env.NEXTAUTH_SECRET_PUBLIC_GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
+      clientSecret: process.env.NEXTAUTH_SECRET_GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
     }),
     LinkedInProvider({
       clientId: process.env.LINKEDIN_ID ?? "your-linkedin-client-id",
