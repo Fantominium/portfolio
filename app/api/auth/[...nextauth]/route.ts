@@ -14,11 +14,11 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.NEXTAUTH_GITHUB_CLIENT_ID ?? "your-github-client-id",
-      clientSecret: process.env.NEXTAUTH_SECRET_GITHUB_CLIENT_SECRET ?? "your-github-client-secret",
+      clientSecret: process.env.AUTH_SECRET_GITHUB_CLIENT_SECRET ?? "your-github-client-secret",
     }),
     GoogleProvider({
       clientId: process.env.NEXTAUTH_GOOGLE_CLIENT_ID ?? "your-google-client-id",
-      clientSecret: process.env.NEXTAUTH_SECRET_GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
+      clientSecret: process.env.AUTH_SECRET_GOOGLE_CLIENT_SECRET ?? "your-google-client-secret",
     }),
     LinkedInProvider({
       clientId: process.env.LINKEDIN_ID ?? "your-linkedin-client-id",
