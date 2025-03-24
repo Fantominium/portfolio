@@ -60,8 +60,8 @@ const cloudSkills = [
 
 export default function ResumePage() {
   return (
-    <SessionProvider>
-    <AuthGuard>
+    // <SessionProvider>
+    // <AuthGuard>
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
         <Header headerLinks={resumeHeaderData.headerLinks} />
         <h1 className="text-4xl font-bold mb-6 mt-6">Resume</h1>
@@ -84,8 +84,8 @@ export default function ResumePage() {
           <ResumeContent />
         </Suspense>
       </div>
-    </AuthGuard>
-    </SessionProvider>
+    // </AuthGuard>
+    // </SessionProvider>
   );
 }
 
