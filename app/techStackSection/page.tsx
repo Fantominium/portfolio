@@ -1,4 +1,4 @@
-import TechStack from "../components/tech-stack"
+import TechStack from "../../components/tech-stack"
 
 export default function TechStackSection () {
     return (

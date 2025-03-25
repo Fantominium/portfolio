@@ -5,7 +5,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Download } from "lucide-react";
 import { Suspense } from "react";
 import { CareerHistory } from "./careerHistory";
-import Header from "../components/header";
+import Header from "../../components/header";
 import { resumeHeaderData } from "../data/resumeHeaderData";
 import AuthGuard from "@/components/authGuard";
 import { SessionProvider } from "next-auth/react";

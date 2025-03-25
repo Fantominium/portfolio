@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { userAgent } from "next/server";
 import { useEffect, useState } from "react";
 
 export default function useRequireAuth() {
@@ -19,5 +20,6 @@ export default function useRequireAuth() {
     status, 
     isAuthChecked,
     userName: session?.user?.name, 
-    userImage: session?.user?.image }; 
+    userImage: session?.user?.image, 
+  }; 
 }

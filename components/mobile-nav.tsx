@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
-import { HeaderLinkList } from "../data/headerData"
+import { HeaderLinkList } from "../app/data/headerData"
 
 export default function MobileNav({headerLinks = []}: Readonly<HeaderLinkList>) {
   const [open, setOpen] = useState(false)

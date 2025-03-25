@@ -1,8 +1,8 @@
 "use client"
 import Link from 'next/link'
-import MobileNav from '../components/mobile-nav'
+import MobileNav from './mobile-nav'
 import {ThemeToggle} from '@/components/theme-toggle'
-import {HeaderLinkList} from '../data/headerData'
+import {HeaderLinkList} from '../app/data/headerData'
 import AuthButton from '@/components/authButton'
 import {SessionProvider} from 'next-auth/react'
 
