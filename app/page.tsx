@@ -5,12 +5,14 @@ import AboutSection from "./aboutSection/page"
 import Header from "../components/header"
 import { headerData } from "./data/headerData"
 import Footer from "../components/footer"
+import BackgroundPaths from "@/components/kokonutui/background-paths"
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4">
       <Header headerLinks={headerData.headerLinks} />
       <main className="flex flex-col items-center">
+        <BackgroundPaths />
         <AboutSection />
         <ProjectSection />
         <TechStackSection />
