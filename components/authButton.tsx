@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const AuthButton: React.FC = () => {
-  const { isAuthenticated, isAuthChecked, userName, userImage } = useRequireAuth();
+  const { isAuthenticated, isAuthChecked, userName, userImage, linkedInUsed } = useRequireAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (!isAuthChecked) {
@@ -54,6 +54,17 @@ const AuthButton: React.FC = () => {
         <DropdownMenuItem onClick={() => signOut()} aria-label="Sign Out">
           Sign Out
         </DropdownMenuItem>
+        {linkedInUsed && (
+          <a
+            href={`https://www.linkedin.com/in/${userName}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="dropdown-menu-item"
+            aria-label="LinkedIn Profile"
+          >
+            LinkedIn Profile
+          </a>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

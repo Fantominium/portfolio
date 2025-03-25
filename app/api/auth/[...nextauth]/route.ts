@@ -30,10 +30,15 @@ export const authOptions: NextAuthOptions = {
     maxAge: 4 * 60 * 60, // 4 hours
   },
   jwt: {
-    
     // Additional JWT options can be added here if needed
   },
   callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token.linkedInUsed = account.provider === "linkedin";
+      }
+      return token;
+    },
     async session({ session, token }) {
       session.token = token;
       return session;
