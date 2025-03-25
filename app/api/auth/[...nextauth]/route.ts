@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
     maxAge: 4 * 60 * 60, // 4 hours
   },
   jwt: {
+    
     // Additional JWT options can be added here if needed
   },
   callbacks: {

@@ -34,7 +34,6 @@ const AuthButton: React.FC = () => {
       </>
     );
   }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
