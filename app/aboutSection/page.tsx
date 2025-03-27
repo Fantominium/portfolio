@@ -8,7 +8,7 @@ export default function AboutSection () {
           <div className="container max-w-[1400px] mx-auto px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2 max-w-5xl mx-auto">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+                <h1 className="text-4xl font-bold tracking-wide sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin">
                   Full Stack Developer
                 </h1>
                 <p className="mx-auto max-w-[800px] text-base text-gray-500 md:text-xl lg:text-2xl dark:text-gray-400">

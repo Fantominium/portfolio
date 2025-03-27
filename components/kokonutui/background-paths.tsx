@@ -47,7 +47,7 @@ function FloatingPaths({ position }: { position: number }) {
 }
 
 export default function BackgroundPaths({
-  title = "Mkg Consultancy Ltd",
+  title = "MKG Consultancy Ltd",
 }: {
   title?: string
 }) {
@@ -67,7 +67,7 @@ export default function BackgroundPaths({
           transition={{ duration: 2 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl sm:text-7xl md:text-8xl mb-8 tracking-tighter">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl mb-8 tracking-wide font-thin">
             {words.map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-4 p-2 last:mr-0">
                 {word.split("").map((letter, letterIndex) => (
