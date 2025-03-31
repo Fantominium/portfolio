@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions, DefaultSession } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import LinkedInProvider from "next-auth/providers/linkedin";
+import LinkedInProvider, {LinkedInProfile} from "next-auth/providers/linkedin";
 
 declare module "next-auth" {
   interface Session {
@@ -21,8 +21,23 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET_DEVELOPMENT ?? "your-google-client-secret",
     }),
     LinkedInProvider({
-      clientId: process.env.LINKEDIN_ID ?? "your-linkedin-client-id",
-      clientSecret: process.env.LINKEDIN_SECRET ?? "your-linkedin-client-secret",
+      clientId: process.env.LINKEDIN_CLIENT_ID_DEVELOPMENT ?? "your-linkedin-client-id",
+      clientSecret: process.env.LINKEDIN_SECRET_DEVELOPMENT ?? "your-linkedin-client-secret",
+      client: { token_endpoint_auth_method: "client_secret_post" },
+      issuer: "https://www.linkedin.com",
+      profile: (profile: LinkedInProfile) => ({
+        id: profile.sub,
+        name: profile.name,
+        email: profile.email,
+        image: profile.picture,
+      }),
+      wellKnown:
+        "https://www.linkedin.com/oauth/.well-known/openid-configuration",
+      authorization: {
+        params: {
+          scope: "openid profile email",
+        },
+      },
     }),
   ],
   session: {
