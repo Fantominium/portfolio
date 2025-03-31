@@ -22,7 +22,7 @@ export default function ResumePage() {
     // <AuthGuard>
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
         <Header headerLinks={resumeHeaderData.headerLinks} />
-        <h1 className="text-4xl font-bold mb-6 mt-6">Resume</h1>
+        <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Resume</h1>
         
         <div className="mb-6">
           <Button
