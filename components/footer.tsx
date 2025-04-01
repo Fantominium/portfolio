@@ -1,4 +1,4 @@
-import CurrentYear from "../components/ui/CurrentYear";
+import CurrentYear from "./CurrentYear";
 import Link from "next/link"
 
 export default function Footer() {

@@ -15,9 +15,11 @@ export default function useRequireAuth() {
 
   const isAuthenticated = Boolean(session?.token);
   return { 
+    linkedInUsed: session?.token?.linkedInUsed,
     isAuthenticated, 
     status, 
     isAuthChecked,
     userName: session?.user?.name, 
-    userImage: session?.user?.image }; 
+    userImage: session?.user?.image, 
+  }; 
 }

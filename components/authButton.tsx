@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const AuthButton: React.FC = () => {
-  const { isAuthenticated, isAuthChecked, userName, userImage } = useRequireAuth();
+  const { isAuthenticated, isAuthChecked, userName, userImage, linkedInUsed } = useRequireAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (!isAuthChecked) {
@@ -34,7 +34,6 @@ const AuthButton: React.FC = () => {
       </>
     );
   }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
