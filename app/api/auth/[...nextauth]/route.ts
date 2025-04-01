@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
     }),
     LinkedInProvider({
       clientId: process.env.LINKEDIN_CLIENT_ID_DEVELOPMENT ?? "your-linkedin-client-id",
-      clientSecret: process.env.LINKEDIN_SECRET_DEVELOPMENT ?? "your-linkedin-client-secret",
+      clientSecret: process.env.NEXTAUTH_LINKEDIN_SECRET_DEVELOPMENT ?? "your-linkedin-client-secret",
       client: { token_endpoint_auth_method: "client_secret_post" },
       issuer: "https://www.linkedin.com",
       profile: (profile: LinkedInProfile) => ({
