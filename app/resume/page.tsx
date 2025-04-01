@@ -1,3 +1,4 @@
+"use client"
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -10,48 +11,48 @@ import AuthGuard from "@/components/authGuard";
 import { SessionProvider } from "next-auth/react";
 import { cloudSkills, arrayProgrammingSkills, arrayAccessoryTools } from "../data/resumeData";
 
-export const metadata = {
-  title: "Mkg Consultancy/Resume",
-  description: "Resume",
-};
-
-
 export default function ResumePage() {
   return (
-    // <SessionProvider>
-    // <AuthGuard>
-      <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
-        <Header headerLinks={resumeHeaderData.headerLinks} />
-        <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Resume</h1>
-        
-        <div className="mb-6">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="flex items-center gap-2"
-          >
-            <a href="/mkg_resume.pdf" download aria-label="Download Resume">
-              <Download className="h-5 w-5 inline" />
-              Download Resume
-            </a>
-          </Button>
-        </div>
+    // Optionally wrap with SessionProvider or AuthGuard if required
+    <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
+      <Header headerLinks={resumeHeaderData.headerLinks} />
+      <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Resume</h1>
+      
+      <ResumeDownloadSection />
 
-        <Suspense fallback={<div className="text-center">Loading...</div>}>
-          <ResumeContent />
-        </Suspense>
-      </div>
-    // </AuthGuard>
-    // </SessionProvider>
+      <Suspense fallback={<div className="text-center">Loading...</div>}>
+        <ResumeContent />
+      </Suspense>
+    </div>
+  );
+}
+
+function ResumeDownloadSection() {
+
+  return (
+    <SessionProvider>
+    <div className="mb-6">
+     <AuthGuard>
+      <Button
+        asChild
+        variant="outline"
+        size="lg"
+        className="flex items-center gap-2"
+      >
+        <a href="/mkg_resume.pdf" download aria-label="Download Resume">
+          <Download className="h-5 w-5 inline" />
+          Download Resume
+        </a>
+      </Button>
+      </AuthGuard>
+    </div>
+    </SessionProvider>
   );
 }
 
 function ResumeContent() {
   return (
     <div className="max-w-3xl w-full space-y-6">
-      
-      {/* Summary Section */}
       <Card className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Summary</h2>
         <p className="text-sm sm:text-base">

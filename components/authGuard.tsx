@@ -8,7 +8,7 @@ interface AuthGuardProps {
 }
 
 const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
-  const { isAuthenticated, isAuthChecked } = useRequireAuth();
+  const { isAuthenticated, isAuthChecked, linkedInUsed } = useRequireAuth();
 
   if (!isAuthChecked) {
     // Optionally, render a spinner or placeholder until authentication state is determined.
@@ -20,11 +20,19 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     }
   // If not authenticated, show the modal to block access
   if (!isAuthenticated) {
-    return (
-        <AuthModal isOpen={true} />
-  )}
+        return <p>Please sign in for a complete user experience</p>;
+  }
 
-  return <>{children}</>;
+  if (!linkedInUsed && isAuthenticated) {
+    return <>{children}</>;
+  }
+  return (        
+  <div className="flex items-center justify-center flex-col">
+      <h2 className="text-lg font-thin tracking-wide mb-4">Alternate Authentication Required</h2>
+      <p className="font-thin tracking-wide mb-4">Please authenticate using another provider to access this content.</p>
+  </div>
+)
+ 
 };
 
 export default AuthGuard;

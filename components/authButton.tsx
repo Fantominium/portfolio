@@ -54,17 +54,6 @@ const AuthButton: React.FC = () => {
         <DropdownMenuItem onClick={() => signOut()} aria-label="Sign Out">
           Sign Out
         </DropdownMenuItem>
-        {linkedInUsed && (
-          <a
-            href={`https://www.linkedin.com/in/${userName}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="dropdown-menu-item"
-            aria-label="LinkedIn Profile"
-          >
-            LinkedIn Profile
-          </a>
-        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
