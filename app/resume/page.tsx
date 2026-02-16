@@ -32,7 +32,7 @@ function ResumeDownloadSection() {
   return (
     <SessionProvider>
     <div className="mb-6">
-     <AuthGuard>
+     {/* <AuthGuard> */}
       <Button
         asChild
         variant="outline"
@@ -44,7 +44,7 @@ function ResumeDownloadSection() {
           Download Resume
         </a>
       </Button>
-      </AuthGuard>
+      {/* </AuthGuard> */}
     </div>
     </SessionProvider>
   );
