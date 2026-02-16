@@ -32,9 +32,9 @@ export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
           </div>
           <div className="ml-auto flex items-center space-x-4">
             <ThemeToggle />
-            <SessionProvider>
+            {/* <SessionProvider>
               <AuthButton />
-            </SessionProvider>
+            </SessionProvider> */}
             
           </div>
         </div>

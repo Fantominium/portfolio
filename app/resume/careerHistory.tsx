@@ -136,6 +136,24 @@ export const CareerHistory = () => {
           </AccordionContent>
         </AccordionItem>
 
+        {/* Company 4 */}
+                <AccordionItem value="company4">
+          <AccordionTrigger>Accenture</AccordionTrigger>
+          <AccordionContent>
+            <h3 className="text-lg font-medium">Full Stack Developer</h3>
+            <p className="text-sm sm:text-base mb-2">June 2025 - Present</p>
+            <Accordion type="single" collapsible value={openProjects['company4'] ?? undefined} onValueChange={(value) => handleProjectChange('company4', value)}>
+              <AccordionItem value="project1">
+                <AccordionTrigger>UK Ministry of Defence</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm sm:text-base">
+                    Took part in digital initiatives as a full stack developer, for the UK Ministry of Defence.
+                   </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </Card>
   );

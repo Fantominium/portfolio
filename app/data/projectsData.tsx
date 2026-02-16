@@ -21,4 +21,10 @@ export const projects = [{
     description: "The creation of various promotional experiences for brands under a ubiquitous FMCG conglomerate using Next.js, Apollo Client and Styled Components, hosted on AWS S3 & EC2.",
     image: "/images/coke.jpg",
     tags: ["Next.js", "Apollo Client", "Styled Components", "AWS"]
+},
+{
+    title: "Accenture",
+    description: "Government contracts with the Ministry of Defence, using traditional and modern tech stacks.",
+    image: "/images/accenture.png",
+    tags: ["Vite", "Prisma ORM", "MUI", "AWS", "Docker", "Storybook", "React Query"]
 }]
