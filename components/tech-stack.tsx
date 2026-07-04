@@ -15,7 +15,7 @@ const technologies = [
   },
   {
     category: "Tools & Methods",
-    skills: ["VS Code", "Postman", "Figma", "Jest", "GitHub", "Agile", "Adobe Experience Manager"],
+    skills: ["VS Code", "Postman", "Figma", "Jest", "GitHub", "Agile", "Adobe Experience Manager", "Spec Driven Development", "Tool Orchestration MCP Pattern", "Stateful Session Server MCP Pattern"],
   },
 ]
 

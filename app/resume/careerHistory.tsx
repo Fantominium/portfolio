@@ -35,7 +35,7 @@ export const CareerHistory = () => {
                 <AccordionTrigger>Various Freelance Projects</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Scope of work included - Conducting accessibility audits and implementing fixes for small scale
+                    Conducting accessibility audits and implementing fixes for small scale
                     applications, ensuring site availability for users who suffer from hard of hearing, blindness, or motor
                     disabilities. Crafting NextJs applications for greenfield projects utilising the latest in App Routing, Server
                     Side Rendering, SEO optimisations, and leveraging Backend for Frontend functionalities. Updating legacy
@@ -71,7 +71,8 @@ export const CareerHistory = () => {
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
                     Led the migration of a crucial and sensitive government application to a more secure, geographically managed location.
-                    Created and maintained an official cloud infrastructure architecture document, satisfying strict internal architectural vetting processes by ensuring high security compliance and application resilience.
+                    Implemented Agentic AI Development strategies, and MCP server patterns, to enhance and expedite the application's development, build, testing, and deployment processes, in a secure, financially sustainable and governmentally compliant manner.
+                    Created and maintained an official sensitive cloud infrastructure architecture document, satisfying strict internal architectural vetting processes by ensuring high security compliance and application resilience.
                     Assumed the leading role in the planning, scoping, structuring, implementation, deployment, and post-deployment management of the application.
                   </p>
                 </AccordionContent>

@@ -63,7 +63,7 @@ function ResumeContent() {
           across different industries including professional services, fintech, FMCG, telecoms, and the UK public and defence sector. I always manage to
           establish a strong relationship with a wide range of internal and global stakeholders as well as third party
           suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
-          architectural frameworks, to bridge the gap between the Architect, Developer, Designer, and Product Owner.
+          architectural frameworks, including agentic AI best practices and MCP server patterns, to bridge the gap between the Architect, Developer, Designer, and Product Owner.
         </p>
       </Card>
 
