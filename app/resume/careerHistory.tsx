@@ -25,9 +25,8 @@ export const CareerHistory = () => {
     <Card className="p-6">
       <h2 className="text-2xl font-semibold mb-4">Career History</h2>
       <Accordion type="single" collapsible value={openCompany ?? undefined} onValueChange={handleCompanyChange}>
-        
-      {/* Company 1 */}  
-      <AccordionItem value="company1">
+        {/* Company 1 */}
+        <AccordionItem value="company1">
           <AccordionTrigger>Freelance Fullstack Developer</AccordionTrigger>
           <AccordionContent>
             <p className="text-sm sm:text-base mb-2">July 2024 - Present</p>
@@ -54,11 +53,41 @@ export const CareerHistory = () => {
 
         {/* Company 2 */}
         <AccordionItem value="company2">
+          <AccordionTrigger>Accenture</AccordionTrigger>
+          <AccordionContent>
+            <h3 className="text-lg font-medium">Full Stack Developer</h3>
+            <p className="text-sm sm:text-base mb-2">June 2025 - Present</p>
+            <Accordion type="single" collapsible value={openProjects['company2'] ?? undefined} onValueChange={(value) => handleProjectChange('company2', value)}>
+              <AccordionItem value="project1">
+                <AccordionTrigger>UK Ministry of Defence</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm sm:text-base">
+                    Took part in digital initiatives as a full stack developer, for the UK Ministry of Defence.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="project2">
+                <AccordionTrigger>UK Home Office</AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-sm sm:text-base">
+                    Lead the migration effort of a crucial and sensitive governmental application to a more secure, geographically managed location. 
+                    Created, drafted and committed the cloud infrastructure architecture document of an official sensitive nature, successfully satisfying strict internal architectural vetting processes, 
+                    through ensuring the highest security compliance and application resilience, to which the application would be served from. Assumed the leading role in the planning, 
+                    scoping, structuring, implementation, deployment and post deployment management of the application.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Company 3 */}
+        <AccordionItem value="company3">
           <AccordionTrigger>NTT DATA UK&I</AccordionTrigger>
           <AccordionContent>
             <h3 className="text-lg font-medium">Senior Software Application Developer</h3>
             <p className="text-sm sm:text-base mb-2">Sep 2021 - June 2024</p>
-            <Accordion type="single" collapsible value={openProjects['company2'] ?? undefined} onValueChange={(value) => handleProjectChange('company2', value)}>
+            <Accordion type="single" collapsible value={openProjects['company3'] ?? undefined} onValueChange={(value) => handleProjectChange('company3', value)}>
               <AccordionItem value="project1">
                 <AccordionTrigger>Project with Avon Cosmetics</AccordionTrigger>
                 <AccordionContent>
@@ -86,13 +115,13 @@ export const CareerHistory = () => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Company 3 */}
-        <AccordionItem value="company3">
+        {/* Company 4 */}
+        <AccordionItem value="company4">
           <AccordionTrigger>Movement Digital</AccordionTrigger>
           <AccordionContent>
             <h3 className="text-lg font-medium">Full Stack Developer</h3>
             <p className="text-sm sm:text-base mb-2">March 2018 - August 2021</p>
-            <Accordion type="single" collapsible value={openProjects['company3'] ?? undefined} onValueChange={(value) => handleProjectChange('company3', value)}>
+            <Accordion type="single" collapsible value={openProjects['company4'] ?? undefined} onValueChange={(value) => handleProjectChange('company4', value)}>
               <AccordionItem value="project1">
                 <AccordionTrigger>Project with The Coca-Cola Company</AccordionTrigger>
                 <AccordionContent>
@@ -108,7 +137,7 @@ export const CareerHistory = () => {
                     technologies to create immersive and interactive user experiences. 
                     Collaborated with designers and engineers to integrate cutting-edge technologies into marketing campaigns, 
                     resulting in increased engagement and brand awareness.
-                   </p>
+                  </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="project2">
@@ -119,7 +148,8 @@ export const CareerHistory = () => {
                     leading the integration and testing 
                     of bug fixes, achieving {'>'} 90%
                     code test coverage, for thier in-store customer profile and product
-                    recommendation tool used across the UK. </p>
+                    recommendation tool used across the UK.
+                  </p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="project3">
@@ -129,26 +159,7 @@ export const CareerHistory = () => {
                     Scope of work included - Optimized the booking confirmation process for an international hotel group,
                     Managed the cloud infrastructure, as well as being responsible for 
                     adding web features and content to the company website.
-                     </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Company 4 */}
-                <AccordionItem value="company4">
-          <AccordionTrigger>Accenture</AccordionTrigger>
-          <AccordionContent>
-            <h3 className="text-lg font-medium">Full Stack Developer</h3>
-            <p className="text-sm sm:text-base mb-2">June 2025 - Present</p>
-            <Accordion type="single" collapsible value={openProjects['company4'] ?? undefined} onValueChange={(value) => handleProjectChange('company4', value)}>
-              <AccordionItem value="project1">
-                <AccordionTrigger>UK Ministry of Defence</AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-sm sm:text-base">
-                    Took part in digital initiatives as a full stack developer, for the UK Ministry of Defence.
-                   </p>
+                  </p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

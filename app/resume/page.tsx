@@ -57,13 +57,13 @@ function ResumeContent() {
         <h2 className="text-2xl font-semibold mb-4">Summary</h2>
         <p className="text-sm sm:text-base">
           I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in
-          front-end and back-end technologies across multiple cloud environments. With a proven ability to lead
+          Full Stack JavaScript technologies across multiple cloud environments. With a proven ability to lead
           development projects from inception to deployment, that enhances user experience and operational
           efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations,
-          across different industries including professional services, fintech, FMCG and telecoms. I always manage to
+          across different industries including professional services, fintech, FMCG, telecoms, and the UK public and defence sector. I always manage to
           establish a strong relationship with a wide range of internal and global stakeholders as well as third party
           suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
-          frameworks, to bridge the gap between Developer, Designer, and Product Owner.
+          architectural frameworks, to bridge the gap between the Architect, Developer, Designer, and Product Owner.
         </p>
       </Card>
 
