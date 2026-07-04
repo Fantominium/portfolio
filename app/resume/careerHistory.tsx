@@ -146,7 +146,7 @@ export const CareerHistory = () => {
                     Scope of work included - Enhanced application reliability by 
                     leading the integration and testing 
                     of bug fixes, achieving {'>'} 90%
-                    code test coverage, for thier in-store customer profile and product
+                    code test coverage, for their in-store customer profile and product
                     recommendation tool used across the UK.
                   </p>
                 </AccordionContent>
