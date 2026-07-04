@@ -70,10 +70,9 @@ export const CareerHistory = () => {
                 <AccordionTrigger>UK Home Office</AccordionTrigger>
                 <AccordionContent>
                   <p className="text-sm sm:text-base">
-                    Lead the migration effort of a crucial and sensitive governmental application to a more secure, geographically managed location. 
-                    Created, drafted and committed the cloud infrastructure architecture document of an official sensitive nature, successfully satisfying strict internal architectural vetting processes, 
-                    through ensuring the highest security compliance and application resilience, to which the application would be served from. Assumed the leading role in the planning, 
-                    scoping, structuring, implementation, deployment and post deployment management of the application.
+                    Led the migration of a crucial and sensitive government application to a more secure, geographically managed location.
+                    Created and maintained an official cloud infrastructure architecture document, satisfying strict internal architectural vetting processes by ensuring high security compliance and application resilience.
+                    Assumed the leading role in the planning, scoping, structuring, implementation, deployment, and post-deployment management of the application.
                   </p>
                 </AccordionContent>
               </AccordionItem>
