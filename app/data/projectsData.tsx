@@ -24,7 +24,7 @@ export const projects = [{
 },
 {
     title: "Accenture",
-    description: "Government contracts with the Ministry of Defence, using traditional and modern tech stacks.",
+    description: "Government contracts with the UK Ministry of Defence, and the UK Home Office, using traditional and modern tech stacks, including a range of Agentic AI implementation strategies and MCP server patterns.",
     image: "/images/accenture.png",
     tags: ["Vite", "Prisma ORM", "MUI", "AWS", "Docker", "Storybook", "React Query"]
 }]
