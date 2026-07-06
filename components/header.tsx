@@ -3,17 +3,19 @@ import Link from 'next/link'
 import MobileNav from './mobile-nav'
 import {ThemeToggle} from '@/components/theme-toggle'
 import {HeaderLinkList} from '../app/data/headerData'
-import AuthButton from '@/components/authButton'
-import {SessionProvider} from 'next-auth/react'
 
-export default function Header({headerLinks = []}: Readonly<HeaderLinkList>) {
+interface HeaderProps extends HeaderLinkList {
+  brandName?: string;
+}
+
+export default function Header({headerLinks = [], brandName = "Malcolm Garner"}: Readonly<HeaderProps>) {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container max-w-7xl mx-auto flex h-14 items-center px-4">
-          <MobileNav headerLinks={headerLinks ?? []} />
+          <MobileNav headerLinks={headerLinks ?? []} brandName={brandName} />
           <div className="mr-4 hidden md:flex">
             <Link className="mr-6 flex items-center space-x-2" href="/">
-              <span className="font-bold">Malcolm Garner</span>
+              <span className="font-bold">{brandName}</span>
             </Link>
             <nav className="flex items-center space-x-6 text-sm font-medium">
                 {

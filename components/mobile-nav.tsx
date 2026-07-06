@@ -6,7 +6,11 @@ import Link from "next/link"
 import { useState } from "react"
 import { HeaderLinkList } from "../app/data/headerData"
 
-export default function MobileNav({headerLinks = []}: Readonly<HeaderLinkList>) {
+interface MobileNavProps extends HeaderLinkList {
+  brandName?: string;
+}
+
+export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner"}: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false)
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -17,7 +21,7 @@ export default function MobileNav({headerLinks = []}: Readonly<HeaderLinkList>) 
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <span className="mb-6 flex items-center space-x-2 font-bold">Malcolm Garner</span>
+        <span className="mb-6 flex items-center space-x-2 font-bold">{brandName}</span>
         <nav className="flex flex-col space-y-4">
           {
             headerLinks ?
