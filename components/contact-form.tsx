@@ -24,11 +24,15 @@ interface FormErrors {
   employmentType?: string;
 }
 
-export default function ContactForm() {
+interface ContactFormProps {
+  showEmploymentType?: boolean;
+}
+
+export default function ContactForm({ showEmploymentType = true }: Readonly<ContactFormProps>) {
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState("")
   const [formErrors, setFormErrors] = useState<FormErrors>({})
-  const [employmentType, setEmploymentType] = useState("contract")
+  const [employmentType, setEmploymentType] = useState(showEmploymentType ? "contract" : "n/a")
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -68,7 +72,7 @@ export default function ContactForm() {
         subject: "",
         opportunity: "",
       });
-      setEmploymentType("contract");
+      setEmploymentType(showEmploymentType ? "contract" : "n/a");
       setRecaptchaToken(null);
     } catch (error: any) {
       if (error.response?.data?.errors) {
@@ -144,36 +148,38 @@ export default function ContactForm() {
           />
           {formErrors.opportunity && <p className="text-red-500 text-sm mt-1">{formErrors.opportunity}</p>}
         </div>
-        <div>
-          <label htmlFor="employmentType" className="block text-sm font-medium mb-2">Employment Type</label>
-          <div className="flex space-x-4">
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="contract"
-                name="employmentType"
-                value="contract"
-                checked={employmentType === "contract"}
-                onChange={() => setEmploymentType("contract")}
-                className="m-4"
-              />
-              <label htmlFor="contract" className="text-sm font-medium">Contract</label>
+        {showEmploymentType ? (
+          <div>
+            <span className="block text-sm font-medium mb-2">Employment Type</span>
+            <div className="flex space-x-4">
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="contract"
+                  name="employmentType"
+                  value="contract"
+                  checked={employmentType === "contract"}
+                  onChange={() => setEmploymentType("contract")}
+                  className="m-4"
+                />
+                <label htmlFor="contract" className="text-sm font-medium">Contract</label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="permanent"
+                  name="employmentType"
+                  value="permanent"
+                  checked={employmentType === "permanent"}
+                  onChange={() => setEmploymentType("permanent")}
+                  className="m-4"
+                />
+                <label htmlFor="permanent" className="text-sm font-medium">Permanent</label>
+              </div>
             </div>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="permanent"
-                name="employmentType"
-                value="permanent"
-                checked={employmentType === "permanent"}
-                onChange={() => setEmploymentType("permanent")}
-                className="m-4"
-              />
-              <label htmlFor="permanent" className="text-sm font-medium">Permanent</label>
-            </div>
+            {formErrors.employmentType && <p className="text-red-500 text-sm mt-1">{formErrors.employmentType}</p>}
           </div>
-          {formErrors.employmentType && <p className="text-red-500 text-sm mt-1">{formErrors.employmentType}</p>}
-        </div>
+        ) : null}
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
           onChange={(token) => setRecaptchaToken(token)}

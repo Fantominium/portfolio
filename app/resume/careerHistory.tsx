@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
-export const CareerHistory = () => {
+interface CareerHistoryProps {
+  title?: string;
+}
+
+export const CareerHistory = ({ title = "Career History" }: Readonly<CareerHistoryProps>) => {
   const [openCompany, setOpenCompany] = useState<string | null>(null);
   const [openProjects, setOpenProjects] = useState<{ [key: string]: string | null }>({});
 
@@ -23,7 +27,7 @@ export const CareerHistory = () => {
 
   return (
     <Card className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">Career History</h2>
+      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
       <Accordion type="single" collapsible value={openCompany ?? undefined} onValueChange={handleCompanyChange}>
         {/* Company 1 */}
         <AccordionItem value="company1">
