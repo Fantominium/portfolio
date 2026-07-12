@@ -72,7 +72,7 @@ Current home page (`app/page.tsx`) renders, in order:
 
 - Keep the same hero section as the home page.
 - Add an About Us section focused on personal story, history, and upbringing.
-- Keep the Contact section unchanged.
+- Keep the Contact section layout unchanged, but hide the Employment Type field on `/consultancy`.
 - Add metadata required for production (title and description).
 - Keep the rest of the page mostly the same as home page.
 
