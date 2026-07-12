@@ -8,20 +8,25 @@ export default function ConsultancyAbout() {
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
           <div className="space-y-4 max-w-5xl mx-auto">
             <h1 className="text-4xl tracking-wide sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin">
-              Full Stack Developer
+              Secure Public Sector Delivery
             </h1>
             <div className="mx-auto max-w-[900px] space-y-4 text-base text-gray-500 md:text-xl lg:text-2xl dark:text-gray-400">
               <p>
-                My story starts long before my first professional role. I grew up with a strong sense of curiosity and
-                a practical mindset, always interested in how things worked and how they could be improved.
+                Mkg Consultancy was built on a practical belief: critical services are strongest when technology
+                decisions are secure, evidence-based, and operationally realistic. Drawing on over a decade of
+                full-stack delivery across government, defence, and regulated enterprise environments, including UK
+                public sector programmes and large-scale multinational platforms, we help organizations move from
+                fragmented systems to dependable, production-ready outcomes.
               </p>
               <p>
-                My upbringing taught me resilience, accountability, and the value of doing things properly. Those
-                values shaped a people-first approach that still guides how I listen, communicate, and deliver.
+                Our work combines modern engineering, cloud architecture, and AI-enabled delivery patterns with the
+                controls public sector and security stakeholders expect: clear governance, traceability, resilience,
+                and risk-aware execution.
               </p>
               <p>
-                Through consultancy, I combine hands-on engineering depth with strategic thinking to build products
-                that are reliable, maintainable, and useful from day one.
+                Whether modernizing citizen-facing services, integrating legacy and modern stacks, or accelerating
+                delivery under tight constraints, we provide the strategic clarity and hands-on implementation clients
+                need to deliver safely, reliably, and with measurable impact.
               </p>
             </div>
           </div>

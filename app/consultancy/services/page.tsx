@@ -26,7 +26,7 @@ const consultancyAwsSkillGroups = awsSkillGroups.map((group) => {
 export default function ConsultancyServicesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
-      <Header headerLinks={consultancyServicesHeaderData.headerLinks} brandName="Mkg Consultancy" />
+      <Header headerLinks={consultancyServicesHeaderData.headerLinks} brandName="Mkg Consultancy" brandHref="/consultancy" />
       <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Services</h1>
 
       <ServicesDownloadSection />
@@ -59,15 +59,15 @@ function ServicesContent() {
       <Card className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Summary</h2>
         <p className="text-sm sm:text-base">
-          I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in Full Stack
-          JavaScript technologies across multiple cloud environments. With a proven ability to lead development
-          projects from inception to deployment, that enhances user experience and operational efficiency across
-          multiple languages. I have deployed a portfolio of solutions for multinational corporations, across different
-          industries including professional services, fintech, FMCG, telecoms, and the UK public and defence sector. I
-          always manage to establish a strong relationship with a wide range of internal and global stakeholders as well
-          as third party suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
-          architectural frameworks, including agentic AI best practices and MCP server patterns, to bridge the gap
-          between the Architect, Developer, Designer, and Product Owner.
+          Mkg Consultancy delivers secure, evidence-led technology services for public sector and regulated clients. We
+          help organizations modernize critical platforms while maintaining governance, resilience, and operational
+          continuity. With over a decade of full-stack delivery across government, defence, and enterprise
+          environments, we combine strategic advisory with hands-on implementation. Our approach blends cloud
+          engineering, modern architecture, and AI-enabled delivery to turn fragmented initiatives into dependable,
+          production-ready outcomes. Whether integrating legacy estates, improving citizen-facing services, or
+          accelerating delivery under compliance pressure, we provide security stakeholders and programme leaders with
+          what matters most: traceability, risk-aware execution, measurable value, and confidence at pace for mission
+          outcomes.
         </p>
       </Card>
 

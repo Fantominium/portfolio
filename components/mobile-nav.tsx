@@ -8,9 +8,10 @@ import { HeaderLinkList } from "../app/data/headerData"
 
 interface MobileNavProps extends HeaderLinkList {
   brandName?: string;
+  brandHref?: string;
 }
 
-export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner"}: Readonly<MobileNavProps>) {
+export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner", brandHref = "/"}: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false)
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -21,7 +22,9 @@ export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <span className="mb-6 flex items-center space-x-2 font-bold">{brandName}</span>
+        <Link className="mb-6 flex items-center space-x-2 font-bold" href={brandHref} onClick={() => setOpen(false)}>
+          {brandName}
+        </Link>
         <nav className="flex flex-col space-y-4">
           {
             headerLinks ?

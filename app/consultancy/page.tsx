@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ConsultancyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4">
-      <Header headerLinks={consultancyHeaderData.headerLinks} brandName="Mkg Consultancy" />
+      <Header headerLinks={consultancyHeaderData.headerLinks} brandName="Mkg Consultancy" brandHref="/consultancy" />
       <main className="flex flex-col items-center">
         <BackgroundPaths />
         <ConsultancyAbout />
