@@ -150,7 +150,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
         </div>
         {showEmploymentType ? (
           <div>
-            <label htmlFor="employmentType" className="block text-sm font-medium mb-2">Employment Type</label>
+            <span className="block text-sm font-medium mb-2">Employment Type</span>
             <div className="flex space-x-4">
               <div className="flex items-center">
                 <input
