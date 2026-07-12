@@ -37,7 +37,7 @@ export default function ConsultancyAbout() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/malcolm-garner-12a20065/" target="_blank">
+            <Link href="https://www.linkedin.com/in/malcolm-garner-12a20065/" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon" className="h-12 w-12">
                 <span className="text-sm font-semibold leading-none">in</span>
                 <span className="sr-only">LinkedIn</span>
