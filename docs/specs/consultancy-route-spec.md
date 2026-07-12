@@ -44,7 +44,7 @@ Current home page (`app/page.tsx`) renders, in order:
 
 1. A user can navigate directly to `/consultancy`.
 2. `/consultancy` renders the same component structure as the home page unless explicitly overridden by approved minor changes.
-3. `/consultancy` must not appear in header navigation links (`app/data/headerData.tsx`) or other visible nav lists.
+3. `/consultancy` must not appear in the global header navigation links (`app/data/headerData.tsx`) or other site-wide nav lists (header/footer). Page-local headerLinks that only render on `/consultancy` are allowed.
 4. Shared style tokens, spacing behavior, and responsive behavior must remain consistent with home page.
 
 ## Non-Functional Requirements
