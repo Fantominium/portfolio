@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import ConsultancyContactSection from "./contact-section"
+import ContactSection from "../contactSection/page"
 import { consultancyHeaderData } from "../data/consultancyHeaderData"
 import ProjectSection from "../projectsSection/page"
 import TechStackSection from "../techStackSection/page"
@@ -23,7 +23,7 @@ export default function ConsultancyPage() {
         <ConsultancyAbout />
         <ProjectSection />
         <TechStackSection />
-        <ConsultancyContactSection />
+        <ContactSection showEmploymentType={false} />
         <Footer />
       </main>
     </div>

@@ -27,21 +27,6 @@ export const arrayProgrammingSkills = [
   "Docker",
 ];
 
-export const cloudSkills = [
-  "Lambda", 
-  "EC2", 
-  "API Gateway", 
-  "S3", 
-  "RDS", 
-  "CloudFront", 
-  "Route 53", 
-  "CloudWatch", 
-  "DynamoDB", 
-  "CloudFormation", 
-  "CodeCommit", 
-  "CloudTrail", 
-  "IAM"
-];
 
 export interface CloudSkillGroup {
   category: string;

@@ -32,7 +32,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState("")
   const [formErrors, setFormErrors] = useState<FormErrors>({})
-  const [employmentType, setEmploymentType] = useState("contract")
+  const [employmentType, setEmploymentType] = useState(showEmploymentType ? "contract" : "n/a")
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -72,7 +72,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
         subject: "",
         opportunity: "",
       });
-      setEmploymentType("contract");
+      setEmploymentType(showEmploymentType ? "contract" : "n/a");
       setRecaptchaToken(null);
     } catch (error: any) {
       if (error.response?.data?.errors) {
