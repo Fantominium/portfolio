@@ -31,7 +31,7 @@ export default function ConsultancyAbout() {
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link href="https://github.com/Fantominium/" target="_blank">
+            <Link href="https://github.com/Fantominium/" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon" className="h-12 w-12">
                 <span className="text-xs font-semibold leading-none">GH</span>
                 <span className="sr-only">GitHub</span>
