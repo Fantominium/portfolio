@@ -1,5 +1,7 @@
 import CurrentYear from "./CurrentYear";
 import Link from "next/link"
+import { buildLocalizedHref } from "@/lib/i18n/navigation"
+import { DEFAULT_LOCALE } from "@/lib/i18n/locale"
 
 export default function Footer() {
     return(
@@ -9,10 +11,10 @@ export default function Footer() {
             © <CurrentYear /> Mkg Consultancy Ltd. All rights reserved.
           </p>
           <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-            <Link className="text-xs hover:underline underline-offset-4" href="/legal/termsAndConditions">
+            <Link className="text-xs hover:underline underline-offset-4" href={buildLocalizedHref("/legal/termsAndConditions", DEFAULT_LOCALE)}>
               Terms of Service
             </Link>
-            <Link className="text-xs hover:underline underline-offset-4" href="/legal/privacyPolicy">
+            <Link className="text-xs hover:underline underline-offset-4" href={buildLocalizedHref("/legal/privacyPolicy", DEFAULT_LOCALE)}>
               Privacy
             </Link>
           </nav>

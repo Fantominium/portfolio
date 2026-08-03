@@ -1,0 +1,18 @@
+{
+  "common": {
+    "languageSwitcher": {
+      "label": "Language",
+      "disabledLabel": "English is currently the only supported language"
+    },
+    "footer": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy"
+    }
+  },
+  "contact": {
+    "messages": {
+      "required": "This field is required",
+      "success": "Your message has been sent!"
+    }
+  }
+}

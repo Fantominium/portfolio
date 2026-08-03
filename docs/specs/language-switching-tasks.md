@@ -22,13 +22,21 @@ Provide a concrete, ordered implementation checklist for the sitewide language s
 
 ### Phase 0: Clarification and remediation gate (must complete before implementation)
 1. Lock the visible-but-disabled switcher behavior in all design and acceptance criteria.
+   - Decision: keep the switcher visible in v1, but disabled and clearly labeled as English-only.
 2. Lock legal content scope to locale-2 while requiring legal localization hooks in v1.
+   - Decision: keep legal pages untranslated in v1, but implement the architectural hooks and route structure needed for future localization.
 3. Define locale-safe navigation helper requirements for replacing hard-coded internal links.
+   - Decision: use a centralized helper for internal navigation so all public links remain within the active locale prefix and preserve the current route.
 4. Define locale-aware metadata and document-language requirements for all public routes.
+   - Decision: generate metadata per route and set the document language from the active locale for every public page.
 5. Define API message-code contract for contact form error/success localization.
+   - Decision: keep the API contract simple and use message codes for user-facing responses, mapped to localized UI strings in the client.
 6. Define build-quality gates for TypeScript and lint checks.
+   - Decision: require type checking and linting to pass for the touched route and component set before implementation is considered complete.
 7. Define anchor/hash preservation requirements across locale-aware route transitions.
+   - Decision: preserve the current hash fragment and query string when switching locale or redirecting to the locale-prefixed route.
 8. Confirm remediation acceptance checks and sign off before coding starts.
+   - Decision: do not begin implementation until the above Phase 0 decisions are explicitly reviewed and accepted.
 
 ### Phase 1: Foundation and routing
 1. Confirm the supported locale list and default locale as `en`.
