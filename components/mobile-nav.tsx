@@ -7,6 +7,8 @@ import { useState } from "react"
 import { HeaderLinkList } from "../app/data/headerData"
 import { buildLocalizedHref } from "@/lib/i18n/navigation"
 import { DEFAULT_LOCALE } from "@/lib/i18n/locale"
+import LanguageSwitcher from "./language-switcher"
+import { useTranslations } from "next-intl"
 
 interface MobileNavProps extends HeaderLinkList {
   brandName?: string;
@@ -15,6 +17,7 @@ interface MobileNavProps extends HeaderLinkList {
 
 export default function MobileNav({ headerLinks = [], brandName = "Malcolm Garner", brandHref = "/" }: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false)
+  const t = useTranslations("common.navigation")
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -35,12 +38,13 @@ export default function MobileNav({ headerLinks = [], brandName = "Malcolm Garne
               className="text-lg font-medium hover:text-primary"
               onClick={() => setOpen(false)}
             >
-              {link.content}
+              {t(link.label)}
             </Link>
           ))}
         </nav>
-        <div className="mt-6 rounded-md border p-3 text-sm text-muted-foreground" aria-label="English is currently the only supported language">
-          English is currently the only supported language.
+        <div className="mt-6 flex items-center justify-between rounded-md border p-3 text-sm text-muted-foreground">
+          <span>Language</span>
+          <LanguageSwitcher />
         </div>
       </SheetContent>
     </Sheet>

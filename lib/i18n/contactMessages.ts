@@ -1,25 +1,58 @@
 export const CONTACT_MESSAGE_CODES = {
-  success: "CONTACT_SUCCESS",
-  invalidInput: "CONTACT_INVALID_INPUT",
-  missingCaptcha: "CONTACT_MISSING_CAPTCHA",
-  captchaFailed: "CONTACT_CAPTCHA_FAILED",
-  emailFailed: "CONTACT_EMAIL_FAILED",
-  unknown: "CONTACT_UNKNOWN_ERROR",
+  success: "success",
+  nameRequired: "nameRequired",
+  emailRequired: "emailRequired",
+  subjectRequired: "subjectRequired",
+  opportunityRequired: "opportunityRequired",
+  employmentTypeRequired: "employmentTypeRequired",
+  recaptchaRequired: "recaptchaRequired",
+  invalidInput: "invalidInput",
+  recaptchaFailed: "recaptchaFailed",
+  emailFailed: "emailFailed",
+  unknown: "unknown",
 } as const
+
+export type ContactMessageCode = (typeof CONTACT_MESSAGE_CODES)[keyof typeof CONTACT_MESSAGE_CODES]
+
+const CONTACT_MESSAGE_KEYS: Record<ContactMessageCode, string> = {
+  success: "success",
+  nameRequired: "nameRequired",
+  emailRequired: "emailRequired",
+  subjectRequired: "subjectRequired",
+  opportunityRequired: "opportunityRequired",
+  employmentTypeRequired: "employmentTypeRequired",
+  recaptchaRequired: "recaptchaRequired",
+  invalidInput: "invalidInput",
+  recaptchaFailed: "recaptchaFailed",
+  emailFailed: "emailFailed",
+  unknown: "unknown",
+}
+
+export function getContactMessageKey(code?: string) {
+  if (code && code in CONTACT_MESSAGE_KEYS) {
+    return CONTACT_MESSAGE_KEYS[code as ContactMessageCode]
+  }
+
+  return CONTACT_MESSAGE_KEYS.unknown
+}
+
+export function getContactFieldErrorKey(code?: string) {
+  return getContactMessageKey(code)
+}
 
 export function getContactMessage(code?: string, fallback?: string) {
   switch (code) {
     case CONTACT_MESSAGE_CODES.success:
-      return "Your message has been sent!"
+      return "success"
     case CONTACT_MESSAGE_CODES.invalidInput:
-      return "Please check your input and try again."
-    case CONTACT_MESSAGE_CODES.missingCaptcha:
-      return "Please complete the reCAPTCHA."
-    case CONTACT_MESSAGE_CODES.captchaFailed:
-      return "reCAPTCHA verification failed."
+      return "invalidInput"
+    case CONTACT_MESSAGE_CODES.recaptchaRequired:
+      return "recaptchaRequired"
+    case CONTACT_MESSAGE_CODES.recaptchaFailed:
+      return "recaptchaFailed"
     case CONTACT_MESSAGE_CODES.emailFailed:
-      return "We could not send your message right now."
+      return "emailFailed"
     default:
-      return fallback ?? "Something went wrong"
+      return fallback ?? CONTACT_MESSAGE_KEYS.unknown
   }
 }

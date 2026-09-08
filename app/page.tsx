@@ -1,4 +1,4 @@
-import ContactSection from "./contactSection/page"
+import ContactSection from "@/components/contact-section"
 import TechStackSection from "./techStackSection/page"
 import ProjectSection  from "./projectsSection/page"
 import AboutSection from "./aboutSection/page"

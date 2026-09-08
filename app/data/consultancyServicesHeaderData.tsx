@@ -4,23 +4,23 @@ export const consultancyServicesHeaderData: HeaderLinkList = {
   headerLinks: [
     {
       href: "/consultancy#about",
-      content: "About",
+        label: "about",
     },
     {
       href: "/consultancy#projects",
-      content: "Projects",
+        label: "projects",
     },
     {
       href: "/consultancy#techStack",
-      content: "Tech Stack",
+        label: "techStack",
     },
     {
       href: "/consultancy#contact",
-      content: "Contact",
+        label: "contact",
     },
     {
       href: "/consultancy/services",
-      content: "Services",
+        label: "services",
     },
   ],
 }

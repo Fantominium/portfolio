@@ -4,23 +4,23 @@ export const resumeHeaderData: HeaderLinkList = {
     headerLinks: [
         {
             href: "/#about",
-            content: "About"
+            label: "about"
         },
         {
             href: "/#projects",
-            content: "Projects"
+            label: "projects"
         },
         {
             href: "/#techStack",
-            content: "Tech Stack"
+            label: "techStack"
         },
         {
             href: "/#contact",
-            content: "Contact"
+            label: "contact"
         },
         {
             href: "/resume",
-            content: "Resume"
+            label: "resume"
         }
     ]
 }
