@@ -1,0 +1,251 @@
+{
+  "common": {
+    "navigation": {
+      "about": "About",
+      "projects": "Projects",
+      "techStack": "Tech Stack",
+      "contact": "Contact",
+      "resume": "Resume",
+      "services": "Services"
+    },
+    "languageSwitcher": {
+      "label": "Language",
+      "disabledLabel": "English is currently the only supported language"
+    },
+    "footer": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy",
+      "copyright": "All rights reserved."
+    },
+    "projectCard": {
+      "viewOnGitHub": "View on GitHub"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Malcolm Garner - Full Stack Developer",
+      "description": "Full stack developer portfolio showcasing some of my projects and skills"
+    },
+    "consultancy": {
+      "title": "Consultancy | Mkg Consultancy",
+      "description": "Consultancy-focused portfolio page outlining background, approach, and project delivery experience."
+    },
+    "consultancyServices": {
+      "title": "Services | Mkg Consultancy",
+      "description": "Consultancy services portfolio page covering core capabilities and delivery experience."
+    },
+    "resume": {
+      "title": "Resume | Malcolm Garner",
+      "description": "Professional resume covering experience, skills, and delivery background."
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy | Mkg Consultancy",
+      "description": "Privacy policy for Mkg Consultancy Ltd."
+    },
+    "termsAndConditions": {
+      "title": "Terms and Conditions | Mkg Consultancy",
+      "description": "Terms and conditions for Mkg Consultancy Ltd."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Full Stack Developer",
+      "description": "Building digital experiences with modern technologies. Focused on creating elegant solutions to complex problems, in an accessible way.",
+      "githubLabel": "GitHub",
+      "linkedinLabel": "LinkedIn",
+      "emailLabel": "Email"
+    },
+    "projects": {
+      "multinationalCosmeticsFirm": {
+        "title": "Multinational Cosmetics Firm",
+        "description": "A greenfield onboarding web app using TypeScript, React Query, Python Django, Lambdas and more."
+      },
+      "accountants": {
+        "title": "Association of Chartered Certified Accountants",
+        "description": "A prompt examination feedback experience using TypeScript, Node.js, GraphQL, Module Federation and more."
+      },
+      "danceAi": {
+        "title": "Dance AI",
+        "description": "An AI-powered internal dance app that transposes professional dance moves to your own."
+      },
+      "fmcg": {
+        "title": "Out Of Home Web Experiences FMCG",
+        "description": "The creation of various promotional experiences for brands under a ubiquitous FMCG conglomerate using Next.js, Apollo Client and Styled Components, hosted on AWS S3 & EC2."
+      },
+      "accenture": {
+        "title": "Accenture",
+        "description": "Government contracts with the UK Ministry of Defence and the UK Home Office, using traditional and modern tech stacks, including a range of Agentic AI implementation strategies and MCP server patterns."
+      }
+    },
+    "sections": {
+      "projects": "Projects",
+      "techStack": "Tech Stack",
+      "contact": "Get in Touch"
+    },
+    "techStack": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "pipeline": "Pipeline & CI/CD",
+      "tools": "Tools & Methods"
+    }
+  },
+  "consultancy": {
+    "hero": {
+      "title": "Secure Public Sector Delivery",
+      "paragraph1": "Mkg Consultancy was built on a practical belief: critical services are strongest when technology decisions are secure, evidence-based, and operationally realistic. Drawing on over a decade of full-stack delivery across government, defence, and regulated enterprise environments, including UK public sector programmes and large-scale multinational platforms, we help organizations move from fragmented systems to dependable, production-ready outcomes.",
+      "paragraph2": "Our work combines modern engineering, cloud architecture, and AI-enabled delivery patterns with the controls public sector and security stakeholders expect: clear governance, traceability, resilience, and risk-aware execution.",
+      "paragraph3": "Whether modernizing citizen-facing services, integrating legacy and modern stacks, or accelerating delivery under tight constraints, we provide the strategic clarity and hands-on implementation clients need to deliver safely, reliably, and with measurable impact.",
+      "githubLabel": "GitHub",
+      "linkedinLabel": "LinkedIn",
+      "emailLabel": "Email"
+    },
+    "services": {
+      "title": "Services",
+      "downloadResume": "Download Resume",
+      "summaryHeading": "Summary",
+      "summary": "Mkg Consultancy delivers secure, evidence-led technology services for public sector and regulated clients. We help organizations modernize critical platforms while maintaining governance, resilience, and operational continuity. With over a decade of full-stack delivery across government, defence, and enterprise environments, we combine strategic advisory with hands-on implementation. Our approach blends cloud engineering, modern architecture, and AI-enabled delivery to turn fragmented initiatives into dependable, production-ready outcomes. Whether integrating legacy estates, improving citizen-facing services, or accelerating delivery under compliance pressure, we provide security stakeholders and programme leaders with what matters most: traceability, risk-aware execution, measurable value, and confidence at pace for mission outcomes.",
+      "coreCompetencies": "Core Competencies",
+      "cloud": "Cloud",
+      "programming": "Programming",
+      "accessories": "Accessories",
+      "education": "Education",
+      "experience": "Experience"
+    }
+  },
+  "resume": {
+    "title": "Resume",
+    "downloadResume": "Download Resume",
+    "loading": "Loading...",
+    "summary": "Summary",
+    "summaryBody": "I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in Full Stack JavaScript technologies across multiple cloud environments. With a proven ability to lead development projects from inception to deployment, that enhances user experience and operational efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations, across different industries including professional services, fintech, FMCG, telecoms, and the UK public and defence sector. I always manage to establish a strong relationship with a wide range of internal and global stakeholders as well as third party suppliers. I also leverage my technical experience and knowledge of multiple design patterns and architectural frameworks, including agentic AI best practices and MCP server patterns, to bridge the gap between the Architect, Developer, Designer, and Product Owner.",
+    "skills": "Skills",
+    "cloud": "Cloud",
+    "programming": "Programming",
+    "accessories": "Accessories",
+    "education": "Education",
+    "careerHistory": "Career History",
+    "timeline": {
+      "freelanceTitle": "Freelance Fullstack Developer",
+      "freelancePeriod": "July 2024 - Present",
+      "freelanceProjectTitle": "Various Freelance Projects",
+      "freelanceProjectBody": "Conducting accessibility audits and implementing fixes for small scale applications, ensuring site availability for users who suffer from hard of hearing, blindness, or motor disabilities. Crafting Next.js applications for greenfield projects utilising the latest in App Routing, Server Side Rendering, SEO optimisations, and leveraging Backend for Frontend functionalities. Updating legacy state management systems into more modern Reactive alternatives, reducing cognitive complexity and simplifying application data flow. Implementing and updating website hosting, while leveraging Content Delivery Networks optimising Largest Contentful Paint through caching. Utilising headless CMS solutions such as Strapi and AEM (Adobe Experience Manager). Consulting on and aiding in the implementation of architectural decisions around the Micro-Front-Ends, specifically with Webpack Module Federation.",
+      "accentureTitle": "Accenture",
+      "accentureRole": "Full Stack Developer",
+      "accenturePeriod": "June 2025 - Present",
+      "modTitle": "UK Ministry of Defence",
+      "modBody": "Took part in digital initiatives as a full stack developer, for the UK Ministry of Defence.",
+      "homeOfficeTitle": "UK Home Office",
+      "homeOfficeBody": "Led the migration of a crucial and sensitive government application to a more secure, geographically managed location. Implemented Agentic AI Development strategies, and MCP server patterns, to enhance and expedite the application's development, build, testing, and deployment processes, in a secure, financially sustainable and governmentally compliant manner. Created and maintained an official sensitive cloud infrastructure architecture document, satisfying strict internal architectural vetting processes by ensuring high security compliance and application resilience. Assumed the leading role in the planning, scoping, structuring, implementation, deployment, and post-deployment management of the application.",
+      "nttTitle": "NTT DATA UK&I",
+      "nttRole": "Senior Software Application Developer",
+      "nttPeriod": "Sep 2021 - June 2024",
+      "avonTitle": "Project with Avon Cosmetics",
+      "avonBody": "Scope of work included - Task breakdown of customer requirements, into actionable tickets for the Python API & React Web teams to develop. Recruited additional resources, and grew the team from one to eight, comprising both of backend and frontend web teams. Managed expectations, highlighted risks, and kept to strict timelines through frequent communication with the Leadership Team.",
+      "accaTitle": "Project with ACCA",
+      "accaBody": "Scope of work included - Lead the Web development team to deliver the Personalized Exam Feedback product. Broke down the initial scope of work, through frequent meetings with key stakeholders and my team. Verified that client needs were understood, agreed upon and actioned by both designers and developers. Ensured that the creation of UI designs accounted for and was within WCAG guidelines, enabling the accessibility and usability of the application by persons with disabilities.",
+      "movementTitle": "Movement Digital",
+      "movementRole": "Full Stack Developer",
+      "movementPeriod": "March 2018 - August 2021",
+      "cokeTitle": "Project with The Coca-Cola Company",
+      "cokeBody": "Scope of work included - Responsible for the development of a B2B menu generator tool for a multinational rollout. Worked closely with the client to understand their needs and provided technical solutions to meet their requirements. Coordinated with cross-functional teams to ensure seamless integration and delivery of the tool across different regions. The project resulted in a significant increase in operational efficiency and customer satisfaction for the company. Developed experiential digital marketing content prototypes, using AI and AR technologies to create immersive and interactive user experiences. Collaborated with designers and engineers to integrate cutting-edge technologies into marketing campaigns, resulting in increased engagement and brand awareness.",
+      "clarinsTitle": "Project with Clarins",
+      "clarinsBody": "Scope of work included - Enhanced application reliability by leading the integration and testing of bug fixes, achieving > 90% code test coverage, for their in-store customer profile and product recommendation tool used across the UK.",
+      "ihgTitle": "Project with IHG Group",
+      "ihgBody": "Scope of work included - Optimized the booking confirmation process for an international hotel group, Managed the cloud infrastructure, as well as being responsible for adding web features and content to the company website."
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "opportunity": "Opportunity",
+      "employmentType": "Employment Type",
+      "contract": "Contract",
+      "permanent": "Permanent",
+      "sending": "Sending...",
+      "send": "Send Message"
+    },
+    "messages": {
+      "success": "Your message has been sent!",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "subjectRequired": "Subject is required",
+      "opportunityRequired": "Opportunity is required",
+      "employmentTypeRequired": "Employment type is required",
+      "recaptchaRequired": "Please complete the reCAPTCHA.",
+      "invalidInput": "Please check your input and try again.",
+      "recaptchaFailed": "reCAPTCHA verification failed.",
+      "emailFailed": "We could not send your message right now.",
+      "unknown": "Something went wrong"
+    }
+  },
+  "legal": {
+    "privacyPolicy": {
+      "back": "Back",
+      "backToHome": "Back to Home",
+      "title": "Privacy Policy",
+      "heading": "Privacy Policy",
+      "intro": "At Mkg Consultancy Ltd, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.",
+      "informationWeCollect": {
+        "heading": "Information We Collect",
+        "body": "We may collect personal information that you provide to us directly, such as your name, email address, phone number, and any other information you choose to provide. We may also collect information automatically when you use our website, such as your IP address, browser type, and usage data."
+      },
+      "howWeUseYourInformation": {
+        "heading": "How We Use Your Information",
+        "body": "We use the information we collect to provide, maintain, and improve our services, to communicate with you, to monitor and analyze usage and trends, and to comply with legal obligations."
+      },
+      "sharingYourInformation": {
+        "heading": "Sharing Your Information",
+        "body": "We may share your information with third-party service providers who perform services on our behalf, such as hosting, data analysis, and customer service. We may also share your information to comply with legal obligations, to protect our rights and property, and with your consent."
+      },
+      "yourRights": {
+        "heading": "Your Rights",
+        "body": "You have the right to access, correct, or delete your personal information. You may also have the right to object to or restrict certain processing of your information. To exercise these rights, please contact us at mkg.consultancy.uk@gmail.com."
+      },
+      "changes": {
+        "heading": "Changes to This Privacy Policy",
+        "body": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes."
+      },
+      "contact": {
+        "heading": "Contact Us",
+        "body": "If you have any questions about this Privacy Policy, please contact us at mkg.consultancy.uk@gmail.com ."
+      }
+    },
+    "termsAndConditions": {
+      "back": "Back",
+      "backToHome": "Back to Home",
+      "title": "Terms and Conditions",
+      "heading": "Terms and Conditions",
+      "intro": "Welcome to Mkg Consultancy Ltd. These terms and conditions outline the rules and regulations for the use of our website and services.",
+      "acceptance": {
+        "heading": "Acceptance of Terms",
+        "body": "By accessing and using our website and services, you accept and agree to be bound by these terms and conditions. If you do not agree to these terms, please do not use our website or services."
+      },
+      "changes": {
+        "heading": "Changes to Terms",
+        "body": "We reserve the right to modify these terms and conditions at any time. We will notify you of any changes by posting the new terms and conditions on our website. You are advised to review these terms periodically for any changes."
+      },
+      "useOfServices": {
+        "heading": "Use of Services",
+        "body": "You agree to use our services only for lawful purposes and in accordance with these terms and conditions. You agree not to use our services in any way that could damage, disable, overburden, or impair our website or interfere with any other party's use of our services."
+      },
+      "intellectualProperty": {
+        "heading": "Intellectual Property",
+        "body": "The content, design, and layout of our website and services are protected by intellectual property laws. You may not reproduce, distribute, or create derivative works from any content on our website without our prior written consent."
+      },
+      "limitationOfLiability": {
+        "heading": "Limitation of Liability",
+        "body": "Mkg Consultancy Ltd shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our website or services, even if we have been advised of the possibility of such damages."
+      },
+      "governingLaw": {
+        "heading": "Governing Law",
+        "body": "These terms and conditions are governed by and construed in accordance with the laws of the United Kingdom, and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
+      },
+      "contact": {
+        "heading": "Contact Us",
+        "body": "If you have any questions about these terms and conditions, please contact us at mkg.consultancy.uk@gmail.com ."
+      }
+    }
+  }
+}

@@ -1,39 +1,43 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
-import validator from 'validator';
+import isEmail from 'validator/es/lib/isEmail';
+import isLength from 'validator/es/lib/isLength';
+import normalizeEmail from 'validator/es/lib/normalizeEmail';
+import trim from 'validator/es/lib/trim';
 import sanitizeHtml from 'sanitize-html';
 import sgMail from '@sendgrid/mail';
+import { CONTACT_MESSAGE_CODES } from '@/lib/i18n/contactMessages';
 
 export async function POST(request: Request) {
   const { name, email, subject, opportunity, employmentType, recaptchaToken } = await request.json();
 
   const errors: Record<string, string> = {};
-  if (!name) errors.name = 'Name is required';
-  if (!email) errors.email = 'Email is required';
-  if (!subject) errors.subject = 'Subject is required';
-  if (!opportunity) errors.opportunity = 'Opportunity is required';
-  if (!employmentType) errors.employmentType = 'Employment type is required';
-  if (!recaptchaToken) errors.recaptchaToken = 'reCAPTCHA is required';
+  if (!name) errors.name = CONTACT_MESSAGE_CODES.nameRequired;
+  if (!email) errors.email = CONTACT_MESSAGE_CODES.emailRequired;
+  if (!subject) errors.subject = CONTACT_MESSAGE_CODES.subjectRequired;
+  if (!opportunity) errors.opportunity = CONTACT_MESSAGE_CODES.opportunityRequired;
+  if (!employmentType) errors.employmentType = CONTACT_MESSAGE_CODES.employmentTypeRequired;
+  if (!recaptchaToken) errors.recaptchaToken = CONTACT_MESSAGE_CODES.recaptchaRequired;
 
   if (Object.keys(errors).length > 0) {
-    return NextResponse.json({ errors }, { status: 400 });
+    return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.invalidInput, errors }, { status: 400 });
   }
 
   const sanitizedData = {
-    name: sanitizeHtml(validator.trim(name)),
-    email: sanitizeHtml(validator.normalizeEmail(email) || ''),
-    subject: sanitizeHtml(validator.trim(subject)),
-    opportunity: sanitizeHtml(validator.trim(opportunity)),
-    employmentType: sanitizeHtml(validator.trim(employmentType)),
+    name: sanitizeHtml(trim(name)),
+    email: sanitizeHtml(normalizeEmail(email) || ''),
+    subject: sanitizeHtml(trim(subject)),
+    opportunity: sanitizeHtml(trim(opportunity)),
+    employmentType: sanitizeHtml(trim(employmentType)),
   };
 
   if (
-    !validator.isLength(sanitizedData.name, { min: 1 }) ||
-    !validator.isEmail(sanitizedData.email) ||
-    !validator.isLength(sanitizedData.subject, { min: 1 }) ||
-    !validator.isLength(sanitizedData.opportunity, { min: 1 })
+    !isLength(sanitizedData.name, { min: 1 }) ||
+    !isEmail(sanitizedData.email) ||
+    !isLength(sanitizedData.subject, { min: 1 }) ||
+    !isLength(sanitizedData.opportunity, { min: 1 })
   ) {
-    return NextResponse.json({ message: 'Invalid input data' }, { status: 400 });
+    return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.invalidInput }, { status: 400 });
   }
 
   try {
@@ -44,10 +48,10 @@ export async function POST(request: Request) {
       },
     });
     if (!captchaRes.data.success) {
-      return NextResponse.json({ message: 'Invalid reCAPTCHA' }, { status: 400 });
+      return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.recaptchaFailed }, { status: 400 });
     }
-  } catch (error) {
-    return NextResponse.json({ message: 'reCAPTCHA verification failed' }, { status: 500 });
+  } catch {
+    return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.recaptchaFailed }, { status: 500 });
   }
 
   // Process form submission (e.g., send email, save to DB) here.
@@ -67,8 +71,8 @@ export async function POST(request: Request) {
     };
     await sgMail.send(msg);
   }
-  catch (error) {
-    return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
+  catch {
+    return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.emailFailed }, { status: 500 });
   }
-  return NextResponse.json({ message: 'Your message has been sent!' }, { status: 200 });
+  return NextResponse.json({ messageCode: CONTACT_MESSAGE_CODES.success }, { status: 200 });
 }

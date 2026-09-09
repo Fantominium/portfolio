@@ -6,27 +6,33 @@ import { Download } from "lucide-react";
 import { Suspense } from "react";
 import { CareerHistory } from "./careerHistory";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 import { resumeHeaderData } from "../data/resumeHeaderData";
 import { SessionProvider } from "next-auth/react";
 import { awsSkillGroups, azureSkillGroups, arrayProgrammingSkills, arrayAccessoryTools } from "../data/resumeData";
+import { useTranslations } from "next-intl";
 
 export default function ResumePage() {
+  const t = useTranslations("resume")
+
   return (
-    // Optionally wrap with SessionProvider or AuthGuard if required
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
       <Header headerLinks={resumeHeaderData.headerLinks} />
-      <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Resume</h1>
+      <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">{t("title")}</h1>
       
       <ResumeDownloadSection />
 
-      <Suspense fallback={<div className="text-center">Loading...</div>}>
+      <Suspense fallback={<div className="text-center">{t("loading")}</div>}>
         <ResumeContent />
       </Suspense>
+
+      <Footer />
     </div>
   );
 }
 
 function ResumeDownloadSection() {
+  const t = useTranslations("resume")
 
   return (
     <SessionProvider>
@@ -38,9 +44,9 @@ function ResumeDownloadSection() {
         size="lg"
         className="flex items-center gap-2"
       >
-        <a href="/mkg_resume.pdf" download aria-label="Download Resume">
+        <a href="/mkg_resume.pdf" download aria-label={t("downloadResume")}>
           <Download className="h-5 w-5 inline" />
-          Download Resume
+          {t("downloadResume")}
         </a>
       </Button>
       {/* </AuthGuard> */}
@@ -50,30 +56,25 @@ function ResumeDownloadSection() {
 }
 
 function ResumeContent() {
+  const t = useTranslations("resume")
+
   return (
     <div className="max-w-3xl w-full space-y-6">
       <Card className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Summary</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t("summary")}</h2>
         <p className="text-sm sm:text-base">
-          I’m a dynamic Senior Software Application Developer with over 10 years of extensive experience in
-          Full Stack JavaScript technologies across multiple cloud environments. With a proven ability to lead
-          development projects from inception to deployment, that enhances user experience and operational
-          efficiency across multiple languages. I have deployed a portfolio of solutions for multinational corporations,
-          across different industries including professional services, fintech, FMCG, telecoms, and the UK public and defence sector. I always manage to
-          establish a strong relationship with a wide range of internal and global stakeholders as well as third party
-          suppliers. I also leverage my technical experience and knowledge of multiple design patterns and
-          architectural frameworks, including agentic AI best practices and MCP server patterns, to bridge the gap between the Architect, Developer, Designer, and Product Owner.
+          {t("summaryBody")}
         </p>
       </Card>
 
       {/* Skills Section */}
       <Card className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t("skills")}</h2>
         <Accordion type="multiple">
           
           {/* Cloud Skills */}
           <AccordionItem value="cloud">
-            <AccordionTrigger>Cloud</AccordionTrigger>
+            <AccordionTrigger>{t("cloud")}</AccordionTrigger>
             <AccordionContent>
               <Accordion type="single" collapsible>
                 <AccordionItem value="aws">
@@ -120,7 +121,7 @@ function ResumeContent() {
           
           {/* Programming Skills */}
           <AccordionItem value="programming">
-            <AccordionTrigger>Programming</AccordionTrigger>
+            <AccordionTrigger>{t("programming")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 {arrayProgrammingSkills.map((skill) => (
@@ -132,7 +133,7 @@ function ResumeContent() {
           
           {/* Accessories and tools */}
           <AccordionItem value="accessory tools">
-            <AccordionTrigger>Accessories</AccordionTrigger>
+            <AccordionTrigger>{t("accessories")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 {arrayAccessoryTools.map((tool) => (
@@ -144,7 +145,7 @@ function ResumeContent() {
 
           {/* Education Skills */}
           <AccordionItem value="education">
-            <AccordionTrigger>Education</AccordionTrigger>
+            <AccordionTrigger>{t("education")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 <li>Bachelor of Science – Computer Science (Hons) (2013), 
@@ -158,7 +159,7 @@ function ResumeContent() {
         </Accordion>
       </Card>
 
-      <CareerHistory />
+      <CareerHistory title={t("careerHistory")} />
 
     </div>
   );

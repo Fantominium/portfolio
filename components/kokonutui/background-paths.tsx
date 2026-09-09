@@ -1,21 +1,25 @@
 "use client"
 
+import { useMemo } from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 
-function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-    width: 0.5 + i * 0.03,
-  }))
+function FloatingPaths({ position }: Readonly<{ position: number }>) {
+  const paths = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+          380 - i * 5 * position
+        } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+          152 - i * 5 * position
+        } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+          684 - i * 5 * position
+        } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+        width: 0.5 + i * 0.03,
+        duration: 40 + i,
+      })),
+    [position],
+  )
 
   return (
     <div className="absolute inset-0 pointer-events-none">
@@ -27,15 +31,15 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            strokeOpacity={0.08 + path.id * 0.018}
+            initial={{ pathLength: 0.3, opacity: 0.35 }}
             animate={{
               pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
               pathOffset: [0, 1, 0],
+              opacity: 0.35,
             }}
             transition={{
-              duration: 40 + Math.random() * 20,
+              duration: path.duration,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -48,9 +52,9 @@ function FloatingPaths({ position }: { position: number }) {
 
 export default function BackgroundPaths({
   title = "MKG Consultancy Ltd",
-}: {
+}: Readonly<{
   title?: string
-}) {
+}>) {
   const words = title.split(" ")
 
   return (
@@ -68,15 +72,15 @@ export default function BackgroundPaths({
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-5xl sm:text-7xl md:text-8xl mb-8 tracking-wide font-thin">
-            {words.map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-4 p-2 last:mr-0">
+            {words.map((word, wordPosition) => (
+              <span key={word} className="inline-block mr-4 p-2 last:mr-0">
                 {word.split("").map((letter, letterIndex) => (
                   <motion.span
-                    key={`${wordIndex}-${letterIndex}`}
+                    key={`${word}-${letterIndex}`}
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{
-                      delay: wordIndex * 0.1 + letterIndex * 0.03,
+                      delay: wordPosition * 0.1 + letterIndex * 0.03,
                       type: "spring",
                       stiffness: 150,
                       damping: 25,

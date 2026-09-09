@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import axios from "axios"
+import { useTranslations } from "next-intl"
+import { CONTACT_MESSAGE_CODES, getContactFieldErrorKey, getContactMessageKey } from "@/lib/i18n/contactMessages"
 
 
 interface FormData {
@@ -29,8 +31,10 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ showEmploymentType = true }: Readonly<ContactFormProps>) {
+  const tForm = useTranslations("contact.form")
+  const tMessages = useTranslations("contact.messages")
   const [pending, setPending] = useState(false)
-  const [message, setMessage] = useState("")
+  const [messageCode, setMessageCode] = useState<string>("")
   const [formErrors, setFormErrors] = useState<FormErrors>({})
   const [employmentType, setEmploymentType] = useState(showEmploymentType ? "contract" : "n/a")
   const [formData, setFormData] = useState<FormData>({
@@ -53,7 +57,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!recaptchaToken) {
-      setMessage("Please complete the reCAPTCHA.");
+      setMessageCode(CONTACT_MESSAGE_CODES.recaptchaRequired);
       return;
     }
     setPending(true);
@@ -64,7 +68,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
         employmentType,
         recaptchaToken,
       });
-      setMessage(response.data.message);
+      setMessageCode(response.data.messageCode || CONTACT_MESSAGE_CODES.success);
       // Clear the form
       setFormData({
         name: "",
@@ -78,7 +82,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
       if (error.response?.data?.errors) {
         setFormErrors(error.response.data.errors);
       } else {
-        setMessage(error.response?.data?.message || "Something went wrong");
+        setMessageCode(error.response?.data?.messageCode || CONTACT_MESSAGE_CODES.unknown);
       }
     } finally {
       setPending(false);
@@ -91,7 +95,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Name
+              {tForm("name")}
             </label>
             <Input
               id="name"
@@ -101,11 +105,11 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
               required
               className="sm:text-lg"
             />
-            {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
+            {formErrors.name && <p className="text-red-500 text-sm mt-1">{tMessages(getContactFieldErrorKey(formErrors.name))}</p>}
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email
+              {tForm("email")}
             </label>
             <Input
               id="email"
@@ -116,12 +120,12 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
               required
               className="sm:text-lg"
             />
-            {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
+            {formErrors.email && <p className="text-red-500 text-sm mt-1">{tMessages(getContactFieldErrorKey(formErrors.email))}</p>}
           </div>
         </div>
         <div>
           <label htmlFor="subject" className="block text-sm font-medium mb-2">
-            Subject
+            {tForm("subject")}
           </label>
           <Input
             id="subject"
@@ -132,11 +136,11 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
             required
             className="sm:text-lg w-full"
           />
-          {formErrors.subject && <p className="text-red-500 text-sm mt-1">{formErrors.subject}</p>}
+          {formErrors.subject && <p className="text-red-500 text-sm mt-1">{tMessages(getContactFieldErrorKey(formErrors.subject))}</p>}
         </div>
         <div>
           <label htmlFor="opportunity" className="block text-sm font-medium mb-2">
-            Opportunity
+            {tForm("opportunity")}
           </label>
           <Textarea
             id="opportunity"
@@ -146,11 +150,11 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
             required
             className="min-h-[150px] sm:min-h-[200px] lg:min-h-[250px] sm:text-lg resize-none w-full"
           />
-          {formErrors.opportunity && <p className="text-red-500 text-sm mt-1">{formErrors.opportunity}</p>}
+          {formErrors.opportunity && <p className="text-red-500 text-sm mt-1">{tMessages(getContactFieldErrorKey(formErrors.opportunity))}</p>}
         </div>
         {showEmploymentType ? (
           <div>
-            <span className="block text-sm font-medium mb-2">Employment Type</span>
+            <span className="block text-sm font-medium mb-2">{tForm("employmentType")}</span>
             <div className="flex space-x-4">
               <div className="flex items-center">
                 <input
@@ -162,7 +166,7 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
                   onChange={() => setEmploymentType("contract")}
                   className="m-4"
                 />
-                <label htmlFor="contract" className="text-sm font-medium">Contract</label>
+                <label htmlFor="contract" className="text-sm font-medium">{tForm("contract")}</label>
               </div>
               <div className="flex items-center">
                 <input
@@ -174,10 +178,10 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
                   onChange={() => setEmploymentType("permanent")}
                   className="m-4"
                 />
-                <label htmlFor="permanent" className="text-sm font-medium">Permanent</label>
+                <label htmlFor="permanent" className="text-sm font-medium">{tForm("permanent")}</label>
               </div>
             </div>
-            {formErrors.employmentType && <p className="text-red-500 text-sm mt-1">{formErrors.employmentType}</p>}
+            {formErrors.employmentType && <p className="text-red-500 text-sm mt-1">{tMessages(getContactFieldErrorKey(formErrors.employmentType))}</p>}
           </div>
         ) : null}
         <ReCAPTCHA
@@ -185,9 +189,13 @@ export default function ContactForm({ showEmploymentType = true }: Readonly<Cont
           onChange={(token) => setRecaptchaToken(token)}
         />
         <Button type="submit" className="w-full sm:w-auto px-8 sm:text-lg h-12" size="lg" disabled={pending}>
-          {pending ? "Sending..." : "Send Message"}
+          {pending ? tForm("sending") : tForm("send")}
         </Button>
-        {message && <p className={`text-sm sm:text-base text-center mt-4 ${message.includes("sent") ? "text-green-500" : "text-red-500"}`}>{message}</p>}
+        {messageCode && (
+          <p className={`text-sm sm:text-base text-center mt-4 ${messageCode === CONTACT_MESSAGE_CODES.success ? "text-green-500" : "text-red-500"}`}>
+            {tMessages(getContactMessageKey(messageCode))}
+          </p>
+        )}
       </form>
     </Card>
   )

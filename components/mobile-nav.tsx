@@ -5,14 +5,19 @@ import { Menu } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { HeaderLinkList } from "../app/data/headerData"
+import { buildLocalizedHref } from "@/lib/i18n/navigation"
+import { DEFAULT_LOCALE } from "@/lib/i18n/locale"
+import LanguageSwitcher from "./language-switcher"
+import { useTranslations } from "next-intl"
 
 interface MobileNavProps extends HeaderLinkList {
   brandName?: string;
   brandHref?: string;
 }
 
-export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner", brandHref = "/"}: Readonly<MobileNavProps>) {
+export default function MobileNav({ headerLinks = [], brandName = "Malcolm Garner", brandHref = "/" }: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false)
+  const t = useTranslations("common.navigation")
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -22,24 +27,25 @@ export default function MobileNav({headerLinks = [], brandName = "Malcolm Garner
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
-        <Link className="mb-6 flex items-center space-x-2 font-bold" href={brandHref} onClick={() => setOpen(false)}>
+        <Link className="mb-6 flex items-center space-x-2 font-bold" href={buildLocalizedHref(brandHref, DEFAULT_LOCALE)} onClick={() => setOpen(false)}>
           {brandName}
         </Link>
         <nav className="flex flex-col space-y-4">
-          {
-            headerLinks ?
-            headerLinks.map(
-                (link) => 
-                    <Link 
-                        key= {link.href} 
-                        href={link.href} 
-                        className="text-lg font-medium hover:text-primary" 
-                        onClick={() => setOpen(false)}
-                        >
-                        {link.content}
-                    </Link>) : null
-                }
+          {headerLinks?.map((link) => (
+            <Link
+              key={link.href}
+              href={buildLocalizedHref(link.href, DEFAULT_LOCALE)}
+              className="text-lg font-medium hover:text-primary"
+              onClick={() => setOpen(false)}
+            >
+              {t(link.label)}
+            </Link>
+          ))}
         </nav>
+        <div className="mt-6 flex items-center justify-between rounded-md border p-3 text-sm text-muted-foreground">
+          <span>Language</span>
+          <LanguageSwitcher />
+        </div>
       </SheetContent>
     </Sheet>
   )

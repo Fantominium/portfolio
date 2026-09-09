@@ -1,12 +1,11 @@
-"use client"
-
 import { Suspense } from "react"
 import { Download } from "lucide-react"
-import { SessionProvider } from "next-auth/react"
+import { getTranslations } from "next-intl/server"
 
 import { CareerHistory } from "../../resume/careerHistory"
 import { arrayAccessoryTools, arrayProgrammingSkills, awsSkillGroups, azureSkillGroups } from "../../data/resumeData"
 import { consultancyServicesHeaderData } from "../../data/consultancyServicesHeaderData"
+import Footer from "@/components/footer"
 import Header from "@/components/header"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
@@ -23,59 +22,55 @@ const consultancyAwsSkillGroups = awsSkillGroups.map((group) => {
   }
 })
 
-export default function ConsultancyServicesPage() {
+export default async function ConsultancyServicesPage() {
+  const t = await getTranslations("consultancy.services")
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 relative">
       <Header headerLinks={consultancyServicesHeaderData.headerLinks} brandName="Mkg Consultancy" brandHref="/consultancy" />
-      <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">Services</h1>
+      <h1 className="text-3xl tracking-wide font-thin sm:text-4xl md:text-5xl lg:text-6xl mb-6 mt-6">{t("title")}</h1>
 
       <ServicesDownloadSection />
 
       <Suspense fallback={<div className="text-center">Loading...</div>}>
         <ServicesContent />
       </Suspense>
+
+      <Footer />
     </div>
   )
 }
 
-function ServicesDownloadSection() {
+async function ServicesDownloadSection() {
+  const t = await getTranslations("consultancy.services")
+
   return (
-    <SessionProvider>
-      <div className="mb-6">
-        <Button asChild variant="outline" size="lg" className="flex items-center gap-2">
-          <a href="/mkg_resume.pdf" download aria-label="Download Resume">
-            <Download className="h-5 w-5 inline" />
-            Download Resume
-          </a>
-        </Button>
-      </div>
-    </SessionProvider>
+    <div className="mb-6">
+      <Button asChild variant="outline" size="lg" className="flex items-center gap-2">
+        <a href="/mkg_resume.pdf" download aria-label={t("downloadResume")}>
+          <Download className="h-5 w-5 inline" />
+          {t("downloadResume")}
+        </a>
+      </Button>
+    </div>
   )
 }
 
-function ServicesContent() {
+async function ServicesContent() {
+  const t = await getTranslations("consultancy.services")
+
   return (
     <div className="max-w-3xl w-full space-y-6">
       <Card className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Summary</h2>
-        <p className="text-sm sm:text-base">
-          Mkg Consultancy delivers secure, evidence-led technology services for public sector and regulated clients. We
-          help organizations modernize critical platforms while maintaining governance, resilience, and operational
-          continuity. With over a decade of full-stack delivery across government, defence, and enterprise
-          environments, we combine strategic advisory with hands-on implementation. Our approach blends cloud
-          engineering, modern architecture, and AI-enabled delivery to turn fragmented initiatives into dependable,
-          production-ready outcomes. Whether integrating legacy estates, improving citizen-facing services, or
-          accelerating delivery under compliance pressure, we provide security stakeholders and programme leaders with
-          what matters most: traceability, risk-aware execution, measurable value, and confidence at pace for mission
-          outcomes.
-        </p>
+        <h2 className="text-2xl font-semibold mb-4">{t("summaryHeading")}</h2>
+        <p className="text-sm sm:text-base">{t("summary")}</p>
       </Card>
 
       <Card className="p-6">
-        <h2 className="text-2xl font-semibold mb-4">Core Competencies</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t("coreCompetencies")}</h2>
         <Accordion type="multiple">
           <AccordionItem value="cloud">
-            <AccordionTrigger>Cloud</AccordionTrigger>
+            <AccordionTrigger>{t("cloud")}</AccordionTrigger>
             <AccordionContent>
               <Accordion type="single" collapsible>
                 <AccordionItem value="aws">
@@ -121,7 +116,7 @@ function ServicesContent() {
           </AccordionItem>
 
           <AccordionItem value="programming">
-            <AccordionTrigger>Programming</AccordionTrigger>
+            <AccordionTrigger>{t("programming")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 {arrayProgrammingSkills.map((skill) => (
@@ -132,7 +127,7 @@ function ServicesContent() {
           </AccordionItem>
 
           <AccordionItem value="accessory tools">
-            <AccordionTrigger>Accessories</AccordionTrigger>
+            <AccordionTrigger>{t("accessories")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 {arrayAccessoryTools.map((tool) => (
@@ -143,7 +138,7 @@ function ServicesContent() {
           </AccordionItem>
 
           <AccordionItem value="education">
-            <AccordionTrigger>Education</AccordionTrigger>
+            <AccordionTrigger>{t("education")}</AccordionTrigger>
             <AccordionContent>
               <ul className="list-disc list-inside space-y-1">
                 <li>Bachelor of Science – Computer Science (Hons) (2013), University of the West Indies</li>
@@ -155,7 +150,16 @@ function ServicesContent() {
         </Accordion>
       </Card>
 
-      <CareerHistory title="Experience" />
+      <CareerHistory title={t("experience")} />
     </div>
   )
+}
+
+export async function generateMetadata() {
+  const t = await getTranslations("metadata.consultancyServices")
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
